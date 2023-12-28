@@ -1,0 +1,81 @@
+Database systems perform vital functions for all sorts of organizations
+because of the growing importance of using and managing data efficiently. A
+database system consists of a software, a database management system (DBMS)
+and one or several databases. DBMS is a set of programs that enables users to
+store, manage and access data. In other words database is processed by DBMS,
+which runs in the main memory and is controlled by the respective operating
+system
+
+A database is a logically coherent collection of data with some inherent
+meaning and represents some aspects of the real world. A random assortment of
+data cannot be referred to as a database. Databases draw a sharp distinction
+between data and information. Data are known facts that can be recorded and that
+have implicit meaning. Information is data that have been organized and prepared
+in a form that is suitable for decision-making. Shortly information is the analysis
+and synthesis of data.
+The most fundamental terms used in database approach are ìentityî,
+ìattributeî and ìrelationshipî. An entity is something that can be identified in the
+usersí work environment, something that the users want to track. It may be an
+object with a physical or conceptual existence. An attribute is a property of an
+entity. A particular entity will have a value for each of its attributes. The attribute
+values that describe each entity become a major part of data stored in the database 
+
+Database Management System is a general-purpose software system
+designed to manage large bodies of information facilitating the process of
+defining, constructing and manipulating databases for various applications.
+Specifying data types, structures and constraints for the data to be stored in the
+database is called defining a database. Constructing the database is the process of
+storing data itself on some storage medium that is controlled by the DBMS.
+Querying to retrieve specific data, updating the database to reflect changes and
+generating reports from the data are the main concepts of manipulating a database.
+The DBMS functions as an interface between the users and the database
+ensuring that the data is stored persistently over long periods of time, independent
+of the programs that access it [3].
+DBMS can be divided into three subsystems; the design tools subsystem,
+the run time subsystem and the DBMS engine. 
+
+The design tools subsystem has a set of tools to facilitate the design and
+creation of the database and its applications. Tools for creating tables, forms,
+queries and reports are components of this system. DBMS products also provide
+programming languages and interfaces to programming languages. The run time
+subsystem processes the application components that are developed using the
+design tools. The last component of DBMS is the DBMS engine which receives
+requests from the other two components and translates those requests into
+commands to the operating system to read and write data on physical media. [4]
+
+Database approach has several advantages over traditional file processing
+in which each user has to create and define files needed for a specific application.
+In these systems duplication of data is generally inevitable causing wasted storage
+space and redundant efforts to maintain common data up-to date. In database
+approach data is maintained in a single storage medium and accessed by various
+users. The self-describing nature of database systems provides information not
+only about database itself but also about the database structure such as the type and
+format of the data. A complete definition and description of database structure and
+constraints, called meta-data, is stored in the system catalog. Data abstraction is a
+consequence of this self-describing nature of database systems allowing programdata independence. DBMS access programs do not require changes when the
+structure of the data files are changed hence the description of data is not
+embedded in the access programs. This property is called program-data
+independence. Support of multiple views of data is another important feature of
+database systems, which enables different users to view different perspective of
+database dependent on their requirements. In a multi-user database environment
+users probably have access to the same data at the same time as well as they can
+access different portions of database for modification. Concurrency control is
+crucial for a DBMS so that the results of the updates are correct. The DBMS
+software is to ensure that concurrent transactions operate correctly when several
+users are trying to update the same data
+
+Using a DBMS also eliminates unnecessary data redundancy. In database
+approach each primary fact is generally recorded in only one place in the database
+[6]. Sometimes it is desirable to include some limited redundancy to improve the
+performance of queries when it is more efficient to retrieve data from a single file
+instead of searching and collecting data from several files, but this data duplication
+is controlled by DBMS so as to prohibit inconsistencies among files. By
+eliminating data redundancy inconsistencies among data are also reduced [5].
+Reducing reduncancy improves the consistency of data while reducing the waste
+in storage space. DBMS gives the opportunity of data sharing to the users. Sharing
+data often permits new data processing applications to be developed without
+having to create new data files. In general, less redundancy and greater sharing
+lead to less confusion between organizational units and less time spent resolving
+errors and inconsistencies in reports. The database approach also permits security
+restrictions. In a DBMS different types of authorizations are accepted in order to
+regulate which parts of the database various users can access or update. 

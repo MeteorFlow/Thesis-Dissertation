@@ -1,0 +1,359 @@
+%!TEX program = xelatex
+
+\documentclass[12pt, a4paper]{report}
+% \usepackage{minted}
+% \usepackage[english,vietnam]{babel}
+% \usepackage[utf8]{inputenc}
+\usepackage{vntex}
+\usepackage{mathptmx}[ptm]
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide, amssymb, epsfig, latexsym, array, hhline, fancyhdr}
+\usepackage[normalem]{ulem}
+%\usepackage{soul}
+\usepackage{float}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol, longtable, amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{indentfirst}
+\usepackage{caption,subcaption}
+\usepackage{svg}
+\graphicspath{ {figures/} }
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}% Standard graphics package
+\graphicspath{ {figures/} }
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{tabularray}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage[numbers]{natbib}
+\usepackage{subcaption}
+
+
+
+\usetikzlibrary{arrows, snakes, backgrounds, calc}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+\usepackage{listings}
+
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\usepackage[normalem]{ulem}
+
+\newtheorem{theorem}{{\bf Định lý}}
+\newtheorem{property}{{\bf Tính chất}}
+\newtheorem{proposition}{{\bf Mệnh đề}}
+\newtheorem{corollary}[proposition]{{\bf Hệ quả}}
+\newtheorem{lemma}[proposition]{{\bf Bổ đề}}
+\theoremstyle{definition}
+\newtheorem{exer}{Bài toán}
+
+\def\thesislayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+		total={160mm,240mm},  % fix over page
+		left=30mm,
+		top=30mm,
+	}
+}
+\thesislayout
+
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=10mm, height=10mm]{Images/hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{  Trường Đại Học Bách Khoa - Đại học Quốc gia TP.HCM }\\
+		\textbf{  Khoa Khoa Học \& Kỹ Thuật Máy Tính}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize  Báo cáo Đồ án chuyên ngành (CO4029) - Năm học 2023 - 2024}
+\fancyfoot[R]{\scriptsize  Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tạo một môi trường mới cho các bảng đặc tả UC, giúp định dạng kiểu
+\newenvironment{usecase_table}[1][Test]
+{
+\begin{table}[H]
+% Left-Right Table padding
+    \setlength{\tabcolsep}{6pt}
+    \renewcommand{\arraystretch}{1.5}
+    % \begin{tabularx}{\textwidth}{bs}
+    \def\savedcaption{\caption{#1}}%
+    \begin{tabular}{|>{\bfseries} p{0.2\linewidth}|p{0.7\linewidth}|}
+
+}
+{
+    \end{tabular}
+    \savedcaption
+\end{table}
+}
+
+\newenvironment{usecase_enum}
+{
+    \begin{enumerate*}[itemjoin={\newline}]
+}
+{
+    \end{enumerate*}
+}
+
+\makeatletter
+\newenvironment{acknowledgments}{
+	\small
+	\begin{center}
+	  {\bfseries Lời cảm ơn / Lời ngỏ\vspace{-.5em}\vspace{\z@}}
+	\end{center}
+	\quotation
+  }{}
+\makeatother
+
+% Declaration
+\makeatletter
+\newenvironment{declaration}{
+	\small
+	\begin{center}
+	  {\bfseries Lời cam đoan\vspace{-.5em}\vspace{\z@}}
+	\end{center}
+	\quotation
+  }{}
+\makeatother
+
+\makeatletter
+\newenvironment{abstr}{
+        \small
+        \begin{center}
+	{\bfseries Tóm tắt nội dung \vspace{-.5em}\vspace{\z@}}
+        \end{center}
+        \quotation
+    }{}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+
+
+\everymath{\color{black}}%make in-line maths symbols blue to read/check easily
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+%space removed between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+
+% Declare a variable named Proc using \newcommand
+\newcommand{\Proc}{PGS. TS. Lê Hồng Trang }
+
+\newcommand{\Uni}{Trường Đại Học Bách Khoa - Đại học Quốc gia TP.HCM }
+
+\renewcommand{\labelitemi}{\normalfont\bfseries\textendash}
+\renewcommand{\labelitemii}{\textbullet}
+
+
+\thesislayout
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[line width = 4pt] ($(current page.north west) + (1.0in,-0.5in)$) rectangle ($(current page.south east) + (-0.4in,0.5in)$);
+        \draw[line width=1.5pt]
+        ($ (current page.north west) + (1.05in,-0.55in) $)
+        rectangle
+        ($ (current page.south east) + (-0.45in,0.55in) $);
+    \end{tikzpicture}
+
+    \begin{center}
+        \large \textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH} \\
+        \large \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA} \\
+        \large \textbf{KHOA KHOA HỌC VÀ KĨ THUẬT MÁY TÍNH}
+    \end{center}
+
+    \begin{figure}[h!]
+        \begin{center}
+            \includegraphics[width=5cm]{Images/hcmut.png}
+        \end{center}
+    \end{figure}
+
+    \begin{center}
+        {\textbf{\Large BÁO CÁO}}\\
+        {\textbf{{\Large ĐỒ ÁN CHUYÊN NGÀNH}}}\\
+        \vspace{1cm}
+        \textbf{\LARGE XÂY DỰNG CƠ SỞ DỮ LIỆU TÍCH HỢP}\\
+        \textbf{\LARGE CHO CÁC HỆ THỐNG DỰ BÁO NGẮN HẠN}\\
+        \textbf{\LARGE TRONG KHÍ TƯỢNG THUỶ VĂN}\\
+        \vspace{0.3cm}
+        {\Large Ngành: Khoa học máy tính}\\
+    \end{center}
+
+    \vspace{1cm}
+    \begin{table}[h]
+        \resizebox{\textwidth}{!} {
+            \begin{tabular}{rll}
+                \hspace{4 cm}
+                 & \textbf{\Large HỘI ĐỒNG:} & \textbf{\Large Hội đồng 5}                  \\
+                 & \textbf{\Large GVHD1:}    & \textbf{\Large Lê Hồng Trang}               \\
+                 & \textbf{\Large GVHD2:}    & \textbf{\Large Trương Quỳnh Chi}            \\
+                 & \textbf{\Large TKHĐ:}     & \textbf{\Large Lê Thị Bảo Thu}              \\
+                 &                           & \textbf{---o0o---}                          \\
+                 & \textbf{\Large SVTH1:}    & \textbf{\Large Trần Hà Tuấn Kiệt (2011493)} \\
+                 & \textbf{\Large SVTH2:}    & \textbf{\Large Nguyễn Đức Thuỵ (2012158)}
+            \end{tabular}
+        }
+    \end{table}
+    \vspace{1cm}
+
+    \begin{center}
+        {\large Thành phố Hồ Chí Minh, Tháng \the\month/\the\year}
+    \end{center}
+\end{titlepage}
+
+
+\newpage
+\input{Chapters/0-prolouge}
+
+%\thispagestyle{empty}
+\chapter*{Bảng phân công công việc}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|l|}
+        \hline
+        \textbf{STT}       & \textbf{Họ và tên}                 & \textbf{MSSV}            & \textbf{Phân chia công việc}                \\
+        \hline
+        %%%%%Student 1%%%%%%%%%%%
+        \multirow{4}{*}{1} & \multirow{4}{*}{Trần Hà Tuấn Kiệt} & \multirow{4}{*}{2011493} & - Phân tích dữ liệu                         \\
+                           &                                    &                          & - Xây dựng kiến trúc hệ thống               \\
+                           &                                    &                          & - Nghiên cứu, tìm hiểu công nghệ và áp dụng \\
+                           &                                    &                          & - Xây dựng API                              \\
+        \hline
+        %%%%%Student 2%%%%%%%%%%%
+        \multirow{4}{*}{2} & \multirow{4}{*}{Nguyễn Đức Thuỵ}   & \multirow{4}{*}{2012158} & - Phân tích dữ liệu                         \\
+                           &                                    &                          & - Xây dựng kiến trúc hệ thống               \\
+                           &                                    &                          & - Nghiên cứu, tìm hiểu công nghệ và áp dụng \\
+                           &                                    &                          & - Xây dựng Data Flow                        \\
+        \hline
+    \end{tabular}
+\end{table}
+\newpage
+\tableofcontents
+\newpage
+%\thispagestyle{empty}
+\listoffigures
+\listoftables
+\chapter{Giới thiệu}
+\section{Phát biểu bài toán}
+\input{Chapters/1.1-problem_statement}
+\section{Động lực thực hiện}
+\input{Chapters/1.2-motivation}
+\section{Mục tiêu dự án}
+\input{Chapters/1.3-goal}
+\section{Phạm vi dự án}
+\input{Chapters/1.4-scope}
+
+\newpage
+\chapter{Cơ sở lý thuyết}
+\section{Hệ Cơ sở dữ liệu}
+\input{Chapters/2.1-database}
+\section{Hệ thống dữ liệu}
+\input{Chapters/2.2-data_sys}
+\section{Lý thuyết về khí tượng}
+\input{Chapters/2.3-meteorology}
+\section{Định dạng dữ liệu trong phân tích khí tượng}
+\input{Chapters/2.4-data_format.tex}
+\section{Công nghệ sử dụng}
+\input{Chapters/2.5-technology.tex}
+
+\newpage
+\chapter{Phân tích và thiết kế hệ thống}
+\section{Tổng quan}
+\input{Chapters/3.0-Overview}
+\section{Thăm dò dữ liệu}
+\input{Chapters/3.1-data_study}
+\section{Mô hình cơ sở dữ liệu}
+\input{Chapters/3.2-data_model.tex}
+\section{Kiến trúc hệ thống}
+\input{Chapters/3.5-implementation}
+
+\newpage
+\chapter{Hiện thực}
+\section{Luồng dữ liệu}
+\input{Chapters/4.1-dataflow}
+
+
+\chapter{Kiểm thử}
+\section{Unit testing}
+\input{Chapters/5.1-unit_test.tex}
+\section{Integrated testing}
+\input{Chapters/5.2-integrated_test.tex}
+
+\newpage
+\chapter{Hướng phát triển}
+\section*{Phát triển thành Hệ thống nền tảng dữ liệu thời tiết}
+\input{Chapters/6-upgrade}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}
+
+% \section{Apache Spark}
+% \section{Apache Airflow}
+% \section{Kubernetes}
+% \section{LROSE}
+% \section{FastAPI}
+
+% \newpage
+% \chapter{Thăm dò dữ liệu}
+%     \input{Chapters/2.0-data_study}
+%     \section{Mô tả dữ liệu}
+%     \input{Chapters/2.2-data_description}
+%     \newpage
+%     \section{Phân tích Khám phá Dữ liệu}
+%     \input{Chapters/2.3-eda}
+%     \section{Kết luận}
+%     \input{Chapters/2.4-chapter_conclusion}

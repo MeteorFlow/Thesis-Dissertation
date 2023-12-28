@@ -1,0 +1,23 @@
+Phần hiện thực của nhóm sẽ nằm trong năm bước còn lại trong mô tả tại hình \ref{fig:sow}.
+
+Tại bước 3, nhóm sẽ setup (cài đặt) một server SFTP đơn giản. SFTP là một giao thức đơn giản và phổ biến. Hiện nay, có rất nhiều những thư viện và công cụ để hỗ trợ giao tiếp dựa trên giao thức này. Ngoài ra, so với FTP, giao thức kể trên còn đảm bảo tính bảo mật trong suốt quá trình chuyển dịch dữ liệu. Tuỳ thuộc vào mức độ cho phép, nhóm có thể hỗ trợ phía trạm quan trắc xây dựng các scripts (kịch bản) để tự động forward (chuyển tiếp) các file sau khi đã được xử lý tại đây. Hoặc ngược lại, phía trạm quan sát có thể gửi file đến server trên một cách thủ công.
+
+Khi file đã được upload đến server SFTP, nhóm sử dụng Airflow để điều hành tất cả các luồng ETL hiện có trong hệ thống chung. Ở thời điểm hiện tại, nhóm chỉ dừng lại với một DAG duy nhất, để xử lí dữ liệu đến từ trạm quan trắc Nhà Bè. Airflow sẽ tiến hành quan sát những file được thêm mới vào server SFTP của chúng ta và khởi chạy ETL. Việc lựa chọn Apache Spark ở đây dựa trên khối lượng dữ liệu và độ phức tạp được đặt ra. Nếu lượng dữ liệu là không quá nhiều cho mỗi file SIGMET mới, và bản thân Python có xử lí được, không cần thiết phải sử dụng Spark ở bước này.
+
+Dữ liệu về khí tượng khi được đưa đến cơ sở hạ tầng của nhóm sẽ được phân ra hai luồng chính: Những metadata (thông tin mở rộng) của dữ liệu gốc như ngày tạo ra, kích thước, thời điểm ghi nhận, ... sẽ được lưu trong một RDBMS (hệ quản trị cơ sở dữ liệu quan hệ) truyền thống. Cụ thể ở đây, nhóm lựa chọn PostgreSQL nhờ vào độ phổ biến và mức độ am hiểu của nhóm. Các metadata lưu trữ ở đây giúp cơ sở dữ liệu của nhóm nhanh chóng phản hồi các query (truy vấn) mà chưa cần trực tiếp phải sử dụng đến dữ liệu gốc. Một số query phổ biến có thể kể đến như:
+
+\begin{itemize}
+    \item Các mốc thời gian đang được ghi nhận bao gồm những gì? (Ví dụ: từ ngày 21/11/2023 cho đến ngày 17/12/2023)
+    \item Tại thời điểm $x$, radar có toạ độ địa lý là bao nhiêu?
+    \item Các trường dữ liệu đang được lưu trữ là gì?
+\end{itemize}
+
+Bên cạnh đó, DB (cơ sở dữ liệu) trên còn đóng vai trò như mục index (chỉ mục) giúp hệ thống nhanh chóng xác định vị trí lưu trữ của dữ liệu gốc.
+
+Với các dữ liệu về khí tượng thuỷ văn cụ thể, nhóm nhận thấy rằng sẽ không thật sự hiệu quả khi lưu trữ chúng trực tiếp trên các DBMS trên. Đồng thời, nhóm nhận thấy việc lưu trữ dữ liệu trên file vẫn đem đến một kích thước tổng quan hợp lý. Vì vậy, nhóm quyết định sẽ tách phần dữ liệu thô ra và lưu trữ trực tiếp trên các files. Đồng thời kết hợp với các index (đã đề cập ở trên) để tăng tốc quá trình truy xuất.
+
+Để tạo cửa ngõ cho việc truy vấn dữ liệu, phục vụ cho các bên về model, machine learning và AI, ... nhóm sẽ phát triển một server Backend đơn giản, sử dụng FastAPI của Python để giúp tăng tốc độ phát triển giải pháp. Tại bước 5, backend sẽ nhận dữ liệu truy vấn dưới định dạng REST API (tại bước 6), truy vấn dữ liệu trong DB của metadata và trong các file dữ liệu và và trả về kết quả đạt được. Ở những lần train khác nhau, các bên của Machine Learning có thể kết nối đến server này để lấy dữ liệu.
+
+Cần nói thêm, toàn bộ hệ thống sẽ được phát triển và vận hành theo hướng containerize (đóng gói) và sẽ được deploy (triển khai) trên nền tảng Kubernetes. Việc này thể hiện khả năng của hệ thống trong việc duy trì tính sẵn sàng cao (High-Availability) cũng như dễ dàng trong việc duy trì giải pháp. Trong phạm vi phần minh hoạ này, nhóm sẽ chỉ dừng lại với việc triển khai trên một cụm máy tính nhúng Raspberry Pi.
+
+Sau cùng, tại bước 7, nhóm muốn đề xuất thêm một vấn đề. Nếu phù hợp, nhóm có thể xây dựng thêm một \texttt{DataLoader} (bộ nạp dữ liệu) đề phục vụ nhanh chóng đến các nhóm làm model khác. Một trong những thư viện phổ biến hiện nay của các bên AI là Pytorch, nên nhóm sẽ tiếp cận với nền tảng này trước.
