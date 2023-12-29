@@ -1,78 +1,83 @@
-\subsection{Data Flow}
+% \subsection{Data Flow}
 
-$\indent$Dòng Dữ liệu (Data Flow) là sự chuyển động của dữ liệu từ một vị trí đến vị trí khác hoặc từ một quy trình này đến một quy trình khác trong hệ thống \cite{dataflow}. 
-Data Flow thường có nơi dữ liệu bắt nguồn và nơi nó được tiêu thụ hoặc lưu trữ.
-Trong quá trình Data Flow được thực thi, dữ liệu có thể xảy ra các thay đổi thành định dạng hoặc cấu trúc khác.
+% $\indent$Dòng Dữ liệu (Data Flow) là sự chuyển động của dữ liệu từ một vị trí đến vị trí khác hoặc từ một quy trình này đến một quy trình khác trong hệ thống \cite{dataflow}. 
+% Data Flow thường có nơi dữ liệu bắt nguồn và nơi nó được tiêu thụ hoặc lưu trữ.
+% Trong quá trình Data Flow được thực thi, dữ liệu có thể xảy ra các thay đổi thành định dạng hoặc cấu trúc khác.
 
-\subsubsection*{Chuyển đổi dữ liệu (Data Transformation):}
+% \subsubsection*{Chuyển đổi dữ liệu (Data Transformation):}
 
-$\indent$Chuyển đổi dữ liệu là một phần quan trọng của quá trình dòng dữ liệu, nơi dữ liệu được thay đổi để đáp ứng yêu cầu cụ thể của quy trình hoặc hệ thống. Có hai hướng chính cho việc thực hiện chuyển đổi dữ liệu: theo lô và theo thời gian thực.
+% $\indent$Chuyển đổi dữ liệu là một phần quan trọng của quá trình dòng dữ liệu, nơi dữ liệu được thay đổi để đáp ứng yêu cầu cụ thể của quy trình hoặc hệ thống. Có hai hướng chính cho việc thực hiện chuyển đổi dữ liệu: theo lô và theo thời gian thực.
 
-Trong chế độ xử lý theo lô, dữ liệu được xử lý theo từng đợt, thường được lên lịch để xử lý vào các khoảng thời gian đặt trước. Điều này thích hợp cho các tác vụ yêu cầu xử lý dữ liệu lớn và phức tạp mà không cần đáp ứng ngay lập tức.
+% Trong chế độ xử lý theo lô, dữ liệu được xử lý theo từng đợt, thường được lên lịch để xử lý vào các khoảng thời gian đặt trước. Điều này thích hợp cho các tác vụ yêu cầu xử lý dữ liệu lớn và phức tạp mà không cần đáp ứng ngay lập tức.
 
-Ngược lại, xử lý theo thời gian thực là quá trình xử lý dữ liệu ngay khi nó đến, mà không có đợi đến khi có một lượng lớn dữ liệu để xử lý. Điều này thường được ưa chuộng trong các ứng dụng đòi hỏi độ trễ thấp, như xử lý sự kiện thời gian thực.
+% Ngược lại, xử lý theo thời gian thực là quá trình xử lý dữ liệu ngay khi nó đến, mà không có đợi đến khi có một lượng lớn dữ liệu để xử lý. Điều này thường được ưa chuộng trong các ứng dụng đòi hỏi độ trễ thấp, như xử lý sự kiện thời gian thực.
 
-\subsubsection*{ETL:}
+% \subsubsection*{ETL:}
 
-$\indent$ETL là một phương pháp quan trọng được sử dụng cho việc quản lý dòng dữ liệu trong hệ thống lưu trữ dữ liệu. Viết tắt ETL đến từ ba bước chính trong quy trình này.
+% $\indent$ETL là một phương pháp quan trọng được sử dụng cho việc quản lý dòng dữ liệu trong hệ thống lưu trữ dữ liệu. Viết tắt ETL đến từ ba bước chính trong quy trình này.
 
-\begin{enumerate}
-    \item \textbf{Extract (Trích Xuất):} Dữ liệu được trích xuất từ các nguồn khác nhau, chẳng hạn như cơ sở dữ liệu, tệp tin, hoặc các dịch vụ trực tuyến.
+% \begin{enumerate}
+%     \item \textbf{Extract (Trích Xuất):} Dữ liệu được trích xuất từ các nguồn khác nhau, chẳng hạn như cơ sở dữ liệu, tệp tin, hoặc các dịch vụ trực tuyến.
     
-    \item \textbf{Transform (Biến Đổi):} Dữ liệu được biến đổi để đáp ứng yêu cầu của hệ thống đích. Điều này có thể bao gồm việc làm sạch dữ liệu, chuyển đổi định dạng, hay thậm chí là tính toán các chỉ số mới.
+%     \item \textbf{Transform (Biến Đổi):} Dữ liệu được biến đổi để đáp ứng yêu cầu của hệ thống đích. Điều này có thể bao gồm việc làm sạch dữ liệu, chuyển đổi định dạng, hay thậm chí là tính toán các chỉ số mới.
     
-    \item \textbf{Load (Lữu trữ):} Dữ liệu đã được biến đổi được nạp vào hệ thống lưu trữ, thường là một kho dữ liệu hoặc data warehouse.
-\end{enumerate}
+%     \item \textbf{Load (Lữu trữ):} Dữ liệu đã được biến đổi được nạp vào hệ thống lưu trữ, thường là một kho dữ liệu hoặc data warehouse.
+% \end{enumerate}
 
-\subsubsection*{Data Pipe:}
+% \subsubsection*{Data Pipe:}
 
-$\indent$Đường ống dữ liệu là một khái niệm quan trọng trong triển khai dòng dữ liệu hiệu quả. Được xây dựng trên ý tưởng của việc tự động hóa quá trình chuyển động và biến đổi dữ liệu, các đường ống dữ liệu đóng vai trò như các luồng làm việc mạnh mẽ.
+% $\indent$Đường ống dữ liệu là một khái niệm quan trọng trong triển khai dòng dữ liệu hiệu quả. Được xây dựng trên ý tưởng của việc tự động hóa quá trình chuyển động và biến đổi dữ liệu, các đường ống dữ liệu đóng vai trò như các luồng làm việc mạnh mẽ.
 
-Thông qua việc sử dụng đường ống dữ liệu, các tỷ lệ lớn dữ liệu có thể được xử lý một cách linh hoạt và hiệu quả. Các tác vụ như xử lý lỗi, theo dõi hiệu suất, và thậm chí là triển khai các biến đổi mới có thể được thực hiện một cách tự động, giúp giảm thiểu sự can thiệp thủ công và tăng tính ổn định của hệ thống.
+% Thông qua việc sử dụng đường ống dữ liệu, các tỷ lệ lớn dữ liệu có thể được xử lý một cách linh hoạt và hiệu quả. Các tác vụ như xử lý lỗi, theo dõi hiệu suất, và thậm chí là triển khai các biến đổi mới có thể được thực hiện một cách tự động, giúp giảm thiểu sự can thiệp thủ công và tăng tính ổn định của hệ thống.
 
-\subsubsection*{Thách thức:}
+% \subsubsection*{Thách thức:}
 
-\begin{itemize}
-    \item \textbf{Tính Nhất Quán của Dữ Liệu:} Đảm bảo tính nhất quán của dữ liệu qua các giai đoạn khác nhau của dòng dữ liệu có thể là thách thức, đặc biệt là trong các hệ thống phân tán.
+% \begin{itemize}
+%     \item \textbf{Tính Nhất Quán của Dữ Liệu:} Đảm bảo tính nhất quán của dữ liệu qua các giai đoạn khác nhau của dòng dữ liệu có thể là thách thức, đặc biệt là trong các hệ thống phân tán.
     
-    \item \textbf{Độ Trễ:} Dòng dữ liệu thời gian thực đòi hỏi độ trễ thấp, điều này có thể là một thách thức trong môi trường cụ thể.
+%     \item \textbf{Độ Trễ:} Dòng dữ liệu thời gian thực đòi hỏi độ trễ thấp, điều này có thể là một thách thức trong môi trường cụ thể.
     
-    \item \textbf{Xử lý Lỗi:} Xử lý lỗi trong quá trình dòng dữ liệu là quan trọng để đảm bảo chất lượng và đáng tin cậy của dữ liệu.
+%     \item \textbf{Xử lý Lỗi:} Xử lý lỗi trong quá trình dòng dữ liệu là quan trọng để đảm bảo chất lượng và đáng tin cậy của dữ liệu.
     
-    \item \textbf{Khả Năng Mở Rộng:} Khi dung lượng dữ liệu tăng, việc mở rộng các quy trình dòng dữ liệu trở nên quan trọng để duy trì hiệu suất.
-\end{itemize}
+%     \item \textbf{Khả Năng Mở Rộng:} Khi dung lượng dữ liệu tăng, việc mở rộng các quy trình dòng dữ liệu trở nên quan trọng để duy trì hiệu suất.
+% \end{itemize}
 
-Ở mức độ cơ bản, dòng dữ liệu đóng một vai trò quan trọng trong quản lý và xử lý dữ liệu trong các hệ thống khác nhau, và việc hiểu và triển khai nó một cách hiệu quả là quan trọng đối với việc xây dựng các kiến trúc dữ liệu mạnh mẽ hỗ trợ nhu cầu của ứng dụng và doanh nghiệp hiện đại.
+% Ở mức độ cơ bản, dòng dữ liệu đóng một vai trò quan trọng trong quản lý và xử lý dữ liệu trong các hệ thống khác nhau, và việc hiểu và triển khai nó một cách hiệu quả là quan trọng đối với việc xây dựng các kiến trúc dữ liệu mạnh mẽ hỗ trợ nhu cầu của ứng dụng và doanh nghiệp hiện đại.
 
 
-\subsection{Data Orchestration:}
-Data Orchestration (Điều phối Dữ liệu) là quá trình phối hợp và quản lý nhiều quy trình dữ liệu, quy trình làm việc hoặc dịch vụ khác nhau để đạt được một kết quả cụ thể.
+% \subsection{Data Orchestration:}
+% Data Orchestration (Điều phối Dữ liệu) là quá trình phối hợp và quản lý nhiều quy trình dữ liệu, quy trình làm việc hoặc dịch vụ khác nhau để đạt được một kết quả cụ thể.
 
-\subsubsection*{Khái niệm cơ bản:}
+% \subsubsection*{Khái niệm cơ bản:}
 
-\begin{itemize}
-    \item \textbf{Quản lý Quy trình làm việc:} Data Orchestration bao gồm việc định nghĩa và quản lý các quy trình làm việc, xác định thứ tự và sự phụ thuộc giữa các quy trình dữ liệu khác nhau.
+% \begin{itemize}
+%     \item \textbf{Quản lý Quy trình làm việc:} Data Orchestration bao gồm việc định nghĩa và quản lý các quy trình làm việc, xác định thứ tự và sự phụ thuộc giữa các quy trình dữ liệu khác nhau.
     
-    \item \textbf{Lập lịch Công việc:} Các bộ điều khiển lập lịch và thực hiện các công việc vào thời gian phù hợp và theo thứ tự đúng để đạt được kết quả mong muốn.
+%     \item \textbf{Lập lịch Công việc:} Các bộ điều khiển lập lịch và thực hiện các công việc vào thời gian phù hợp và theo thứ tự đúng để đạt được kết quả mong muốn.
     
-    \item \textbf{Quản lý Sự phụ thuộc:} Các bộ điều khiển quản lý sự phụ thuộc giữa các công việc, đảm bảo rằng một công việc chỉ được thực hiện khi các công việc phụ thuộc của nó được đáp ứng.
+%     \item \textbf{Quản lý Sự phụ thuộc:} Các bộ điều khiển quản lý sự phụ thuộc giữa các công việc, đảm bảo rằng một công việc chỉ được thực hiện khi các công việc phụ thuộc của nó được đáp ứng.
     
-    \item \textbf{Giám sát và Ghi log:} Hệ thống Điều phối cung cấp các công cụ để giám sát tiến trình của các quy trình làm việc và ghi thông tin liên quan để giải quyết sự cố.
+%     \item \textbf{Giám sát và Ghi log:} Hệ thống Điều phối cung cấp các công cụ để giám sát tiến trình của các quy trình làm việc và ghi thông tin liên quan để giải quyết sự cố.
     
-    \item \textbf{Phân rã Công việc:} Các bộ điều khiển có thể tối ưu hóa hiệu suất bằng cách phân rã công việc thành nhiều nhiệm vụ và thực hiện chúng song song, cải thiện hiệu quả tổng thể.
-\end{itemize}
+%     \item \textbf{Phân rã Công việc:} Các bộ điều khiển có thể tối ưu hóa hiệu suất bằng cách phân rã công việc thành nhiều nhiệm vụ và thực hiện chúng song song, cải thiện hiệu quả tổng thể.
+% \end{itemize}
 
-\subsubsection*{Thách thức:}
+% \subsubsection*{Thách thức:}
 
-\begin{itemize}
-    \item \textbf{Độ phức tạp:} Quản lý các quy trình làm việc phức tạp với nhiều sự phụ thuộc và logic có điều kiện có thể là một thách thức.
+% \begin{itemize}
+%     \item \textbf{Độ phức tạp:} Quản lý các quy trình làm việc phức tạp với nhiều sự phụ thuộc và logic có điều kiện có thể là một thách thức.
     
-    \item \textbf{Môi trường Phân tán:} Việc Điều phối các quy trình dữ liệu trong môi trường phân tán đòi hỏi xử lý các vấn đề như sự cố mạng và sự cố một phần một cách tinh tế.
+%     \item \textbf{Môi trường Phân tán:} Việc Điều phối các quy trình dữ liệu trong môi trường phân tán đòi hỏi xử lý các vấn đề như sự cố mạng và sự cố một phần một cách tinh tế.
     
-    \item \textbf{Quản lý Phiên bản:} Quản lý các thay đổi trong quy trình làm việc và đảm bảo tính tương thích ngược khi cập nhật Điều phối có thể là một vấn đề phức tạp.
+%     \item \textbf{Quản lý Phiên bản:} Quản lý các thay đổi trong quy trình làm việc và đảm bảo tính tương thích ngược khi cập nhật Điều phối có thể là một vấn đề phức tạp.
     
-    \item \textbf{Tải Động:} Điều chỉnh đối với thay đổi động trong khối lượng công việc hoặc nguồn dữ liệu là một thách thức trong Điều phối dữ liệu.
-\end{itemize}
+%     \item \textbf{Tải Động:} Điều chỉnh đối với thay đổi động trong khối lượng công việc hoặc nguồn dữ liệu là một thách thức trong Điều phối dữ liệu.
+% \end{itemize}
 
-Ở mức độ chi tiết, Data Orchestration đóng một vai trò quan trọng trong việc tối ưu hóa quy trình làm việc dữ liệu và đảm bảo tính hiệu quả của hệ thống. Hiểu và triển khai những nguyên lý này một cách chặt chẽ là quan trọng đối với sự thành công của các ứng dụng và doanh nghiệp trong thời đại số ngày nay.
+% Ở mức độ chi tiết, Data Orchestration đóng một vai trò quan trọng trong việc tối ưu hóa quy trình làm việc dữ liệu và đảm bảo tính hiệu quả của hệ thống. Hiểu và triển khai những nguyên lý này một cách chặt chẽ là quan trọng đối với sự thành công của các ứng dụng và doanh nghiệp trong thời đại số ngày nay.
 
+In contemporary computing environments, the landscape is increasingly dominated by data-intensive applications, a departure from the traditional emphasis on compute-intensive tasks. The limiting factor for these applications seldom resides in the sheer computational power of the CPU; rather, the primary challenges typically revolve around the magnitude of the data, its intricate structures, and the rapidity with which it undergoes change. Unlike compute-intensive operations that heavily rely on processing speed, data-intensive applications, dealing with extensive datasets, intricate data structures, or swiftly evolving information, necessitate adept strategies for storage, retrieval, and manipulation. Consequently, effectively addressing the multifaceted dynamics of data becomes paramount, highlighting the imperative for sophisticated data management and processing techniques to optimize performance in the face of these intricate challenges.
+
+Why should we amalgamate these diverse elements within the overarching label of data systems? Recent years have witnessed the emergence of a plethora of novel tools for data storage and processing, each meticulously optimized for an array of distinct use cases, rendering them incompatible with conventional categorizations \cite{stonebraker2005onesize}. Consider, for instance, datastores that concurrently function as message queues (e.g., Redis) or message queues equipped with database-like durability assurances (such as Apache Kafka). The demarcation lines between these categories are progressively fading, reflecting a landscape where boundaries are increasingly ambiguous.
+
+Moreover, a growing number of applications now present challenges of such magnitude or diversity that a solitary tool is no longer sufficient to fulfill all its data processing and storage requisites. Instead, the workload is deconstructed into tasks amenable to efficient execution by individual tools. These disparate tools are then intricately interwoven using application code, offering a nuanced and adaptable approach to the multifaceted demands of contemporary data management and processing.

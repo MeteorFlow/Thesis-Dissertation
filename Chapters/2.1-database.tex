@@ -30,7 +30,7 @@ Querying to retrieve specific data, updating the database to reflect changes and
 generating reports from the data are the main concepts of manipulating a database.
 The DBMS functions as an interface between the users and the database
 ensuring that the data is stored persistently over long periods of time, independent
-of the programs that access it [3].
+of the programs that access it \cite{latisen1998}.
 DBMS can be divided into three subsystems; the design tools subsystem,
 the run time subsystem and the DBMS engine. 
 
@@ -41,20 +41,20 @@ programming languages and interfaces to programming languages. The run time
 subsystem processes the application components that are developed using the
 design tools. The last component of DBMS is the DBMS engine which receives
 requests from the other two components and translates those requests into
-commands to the operating system to read and write data on physical media. [4]
+commands to the operating system to read and write data on physical media \cite{elmasri1998}.
 
 Database approach has several advantages over traditional file processing
 in which each user has to create and define files needed for a specific application.
-In these systems duplication of data is generally inevitable causing wasted storage
+In these systems' duplication of data is generally inevitable causing wasted storage
 space and redundant efforts to maintain common data up-to date. In database
 approach data is maintained in a single storage medium and accessed by various
 users. The self-describing nature of database systems provides information not
 only about database itself but also about the database structure such as the type and
 format of the data. A complete definition and description of database structure and
 constraints, called meta-data, is stored in the system catalog. Data abstraction is a
-consequence of this self-describing nature of database systems allowing programdata independence. DBMS access programs do not require changes when the
-structure of the data files are changed hence the description of data is not
-embedded in the access programs. This property is called program-data
+consequence of this self-describing nature of database systems allowing programdata independence. 
+DBMS access programs do not require changes when the structure of the data files are changed hence 
+the description of data is not embedded in the access programs. This property is called program-data
 independence. Support of multiple views of data is another important feature of
 database systems, which enables different users to view different perspective of
 database dependent on their requirements. In a multi-user database environment
@@ -70,7 +70,7 @@ approach each primary fact is generally recorded in only one place in the databa
 performance of queries when it is more efficient to retrieve data from a single file
 instead of searching and collecting data from several files, but this data duplication
 is controlled by DBMS so as to prohibit inconsistencies among files. By
-eliminating data redundancy inconsistencies among data are also reduced [5].
+eliminating data redundancy inconsistencies among data are also reduced \cite{elmasri1998}.
 Reducing reduncancy improves the consistency of data while reducing the waste
 in storage space. DBMS gives the opportunity of data sharing to the users. Sharing
 data often permits new data processing applications to be developed without

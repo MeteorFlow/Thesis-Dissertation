@@ -1,5 +1,4 @@
-%!TEX program = xelatex
-
+%!TEX xelatex
 \documentclass[12pt, a4paper]{report}
 % \usepackage{minted}
 % \usepackage[english,vietnam]{babel}
@@ -192,7 +191,7 @@
 
 \renewcommand{\labelitemi}{\normalfont\bfseries\textendash}
 \renewcommand{\labelitemii}{\textbullet}
-
+\renewcommand*\baselinestretch{1.5}\selectfont
 
 \thesislayout
 
@@ -317,7 +316,7 @@
 \section{Mô hình cơ sở dữ liệu}
 \input{Chapters/3.2-data_model.tex}
 \section{Kiến trúc hệ thống}
-\input{Chapters/3.5-implementation}
+\input{Chapters/3.3-implementation}
 
 \newpage
 \chapter{Hiện thực}

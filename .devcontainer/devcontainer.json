@@ -43,7 +43,7 @@
 				"latex-workshop.latex.autoClean.run": "onBuilt",
 				"latex-workshop.latex.build.forceRecipeUsage": false,
 				"latex-workshop.synctex.afterBuild.enabled": true,
-				"latex-workshop.view.pdf.viewer": "tab",
+				"latex-workshop.view.pdf.viewer": "singleton",
 				"latex-workshop.latex.clean.subfolder.enabled": true,
 				"latex-workshop.latex.recipe.default": "first",
 				"latex-workshop.latex.magic.args": [
@@ -76,13 +76,14 @@
 			},
 			"extensions": [
 				"James-Yu.latex-workshop",
-				"GitHub.copilot",
+				// "GitHub.copilot",
 				// Remove the line below if you do not want Live-Collaboration Feature
 				"ms-vsliveshare.vsliveshare",
 				// Uncomment the line below if you do not want LanguageTool Support
-				// "valentjn.vscode-ltex",
+				"valentjn.vscode-ltex",
 				// Remove the line below if you do not want Grammarly
-				"znck.grammarly"
+				// "znck.grammarly",
+				"Codeium.codeium"
 			]
 		}
 	}
