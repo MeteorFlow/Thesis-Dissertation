@@ -4,7 +4,9 @@
 	"name": "weblatex",
 	"image": "sanjibsen/weblatex:latest", // https://github.com/sanjib-sen/weblatex-docker
 	"remoteUser": "root", // Do not change this
-	"features": {},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
 	"customizations": {
 		"vscode": {
 			"settings": {
