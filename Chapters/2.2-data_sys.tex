@@ -1,7 +1,20 @@
 
-In contemporary computing environments, the dominance has shifted towards data-intensive applications, deviating from the traditional emphasis on compute-intensive tasks. The limiting factor for these applications seldom resides in the sheer computational power of the CPU; rather, the primary challenges typically revolve around the magnitude of the data, its intricate structures, and the rapidity with which it undergoes change. Unlike compute-intensive operations that heavily rely on processing speed, data-intensive applications, dealing with extensive datasets, intricate data structures, or swiftly evolving information, necessitate adept strategies for storage, retrieval, and manipulation. Consequently, effectively addressing the multifaceted dynamics of data becomes paramount, highlighting the imperative for sophisticated data management and processing techniques to optimize performance in the face of these intricate challenges.
+In contemporary computing environments, the dominance has shifted towards data-intensive applications,
+deviating from the traditional emphasis on compute-intensive tasks.
+The limiting factor for these applications seldom resides in the sheer computational power of the CPU;
+rather, the primary challenges typically revolve around the magnitude of the data, its intricate structures,
+and the rapidity with which it changes. Unlike compute-intensive operations that heavily rely on processing speed,
+data-intensive applications, dealing with extensive datasets, intricate data structures, or swiftly evolving information,
+necessitate adept strategies for storage, retrieval, and manipulation.
+Consequently, effectively addressing the multifaceted dynamics of data becomes paramount,
+highlighting the imperative for sophisticated data management and processing techniques to optimize performance in the face of these intricate challenges.
 
-Why should we amalgamate these diverse elements within the overarching label of data systems? Recent years have witnessed the emergence of a plethora of novel tools for data storage and processing, each meticulously optimized for an array of distinct use cases \cite{stonebraker2005onesize}. Consider, for instance, datastores that concurrently function as message queues (e.g., Redis) or message queues equipped with database-like durability assurances (such as Apache Kafka). The demarcation lines between these categories are progressively fading, reflecting a landscape where boundaries are increasingly ambiguous.
+Why should we amalgamate these diverse elements within the overarching label of data systems?
+Recent years have witnessed the emergence of a plethora of novel tools for data storage and processing,
+each meticulously optimized for an array of distinct use cases \cite{stonebraker2005onesize}.
+Consider, for instance, datastores that concurrently function as message queues (e.g., Redis)
+or message queues equipped with database-like durability assurances (such as Apache Kafka).
+The demarcation lines between these categories are progressively fading, reflecting a landscape where boundaries are increasingly ambiguous.
 
 Moreover, a growing number of applications now present challenges of such magnitude or diversity that a solitary tool is no longer sufficient to fulfill all its data processing and storage requisites. Instead, the workload is deconstructed into tasks amenable to efficient execution by individual tools. These disparate tools are then intricately interwoven using application code, offering a nuanced and adaptable approach to the multifaceted demands of contemporary data management and processing.
 
@@ -9,7 +22,7 @@ In navigating the complex landscape of application development, the quest for re
 
 Ensuring reliability involves the meticulous task of ensuring systems function correctly, even when confronted with faults. These faults may manifest in the hardware domain as random and uncorrelated issues, in software as systematic bugs that are challenging to address, and inevitably in humans who occasionally err. Employing fault-tolerance techniques becomes imperative to shield end users from specific fault types.
 
-Scalability, on the other hand, necessitates the formulation of strategies to maintain optimal performance, particularly when facing heightened loads. To delve into scalability, it becomes essential to establish quantitative methods for describing load and performance. An illustrative example is Twitter's home timelines, serving as a depiction of load, and response time percentiles providing a metric for measuring performance. In a scalable system, the ability to augment processing capacity becomes pivotal to sustaining reliability amidst elevated loads.
+Scalability, on the other hand, necessitates the formulation of strategies to maintain optimal performance, particularly when facing heightened loads. To delve into scalability, it becomes essential to establish quantitative methods for describing load and performance. An illustrative example is Twitter's home timelines, which serve as a depiction of load, and response time percentiles providing a metric for measuring performance. In a scalable system, the ability to augment processing capacity becomes pivotal to sustaining reliability amidst elevated loads.
 
 The facet-rich concept of maintainability essentially revolves around enhancing the working experience for engineering and operations teams interacting with the system. Thoughtfully crafted abstractions play a crucial role in mitigating complexity, rendering the system more adaptable and modifiable for emerging use cases. Effective operability, characterized by comprehensive insights into the system's health and adept management methods, also contributes to maintainability.
 
@@ -17,7 +30,7 @@ Regrettably, there exists no panacea for achieving instant reliability, scalabil
 
 \subsubsection*{Data Transformation:}
 
-Data Transformation is a vital part of the data flow process, where data undergoes changes to meet specific requirements of the process or system. There are two main directions for implementing data transformation: batch processing and real-time processing.
+Data Transformation is a vital part of the data flow process, where data changes to meet specific requirements of the process or system. There are two main directions for implementing data transformation: batch processing and real-time processing.
 
 In batch processing mode, data is processed in batches, often scheduled for processing at predefined intervals. This is suitable for tasks requiring the processing of large and complex datasets without an immediate response.
 

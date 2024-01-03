@@ -1,49 +1,50 @@
-\subsection{Định dạng SIGMET - raw format (Vaisala)}
+\subsection{SIGMET data format - raw format (Vaisala)}
 \label{sigmet}
-Vaisala là một công ty Phần Lan, chuyên về các lĩnh vực thuộc mội trường và khí tượng thuỷ văn. Định dạng RAW (trong một số tài liệu còn gọi là SIGMET \cite{lrose_RadxConvert}) là một trong những định dạng lưu trữ mà công ty này đã phát triển ra nhằm thực hiện tổ chức dữ liệu xuất ra từ các thiết bị radar của họ.
+Vaisala is a Finnish company specializing in environmental and meteorological instrumentation. The RAW format (also referred to as SIGMET in some documents \cite{lrose_RadxConvert}) is one of the storage formats developed by the company to organize data output from their radar devices.
 
-Một số điểm nổi bật về định dạng này có thể kể đến như:
-
-\begin{itemize}
-    \item Nội dung của file được phân thành một \textbf{block} lớn. Mỗi block có kích thước đúng 6144 bytes. Kích thước này vừa đúng bằng kích thước lưu trữ chính trên các thiết bị băng từ cũ.
-    \item File thường là tổng hợp của tất cả những lần radar tiến hành quét dữ liệu.
-    \item Các phần dữ liệu (record) sẽ được sắp xếp trong phạm vi 1 block (6144 bytes). Trong trường hợp phần block còn dư, dữ liệu sẽ được đệm thêm các số 0.
-\end{itemize}
-
-Với những đặc điểm kể trên, có thể nhận thấy các ưu điểm chính từ việc lưu trữ định dạng RAW bao gồm: \cite{raw_product_format_vaisala}
+Some notable points about this format include:
 
 \begin{itemize}
-    \item Thân thiện với các loại băng từ. Đây thường là các thiết bị phổ biến trước đây, hiện nay vẫn được sử dụng rộng rãi nhờ vào hiệu quả từ mức dung lượng / chi phí.
-    \item Nhờ sử dụng cơ chế block, SIGMET giúp các hệ thống lưu trữ thực hiện các biện pháp hồi phục (error recovery) trên mức block.
+    \item The file content is divided into a \textbf{block}, each with a size of exactly 6144 bytes. This size aligns with the main storage size on older tape devices.
+    \item The file typically consolidates data from all radar scanning sessions.
+    \item Data records are organized within the scope of one block (6144 bytes). In the case of any remaining space in the block, it is padded with additional zeros.
 \end{itemize}
 
-Nhược điểm chính mà nhóm quan ngại là khả năng mapping (liên kết) giữa cấu trúc khi lưu trữ trong ổ cứng và trên băng từ.
+With the aforementioned characteristics, the key advantages of the RAW format storage can be identified: \cite{raw_product_format_vaisala}
 
-\subsection{Định dạng NETCDF - Network Common Data Form}
+\begin{itemize}
+    \item Compatibility with various tape types, which were commonly used devices in the past and are still widely used due to their cost-effective storage capacity.
+    \item Through the use of the block mechanism, SIGMET facilitates block-level error recovery in storage systems.
+\end{itemize}
 
-NetCDF (Network Common Data Form) là một định dạng tệp tin linh hoạt được thiết kế chặt chẽ để lưu trữ dữ liệu khoa học đa chiều. Trong hệ thống thư viện netCDF, có nhiều định dạng nhị phân được hỗ trợ, mỗi định dạng đóng góp vào tính linh hoạt và khả năng mở rộng của quản lý dữ liệu \cite{netcdf}. Đáng chú ý, các định dạng này bao gồm:
+The main concern raised by the team is the mapping capability between the storage structure on the hard drive and on the tape.
+
+\subsection{NETCDF data format - Network Common Data Form}
+
+NetCDF (Network Common Data Form) is a versatile file format designed explicitly for storing multidimensional scientific data. Within the netCDF library system, various binary formats are supported, each contributing to the flexibility and scalability of data management \cite{netcdf}. Notably, these formats include:
 
 \begin{enumerate}
-    \item Định dạng Classic: Ban đầu được sử dụng trong phiên bản đầu tiên của netCDF và vẫn là lựa chọn mặc định cho việc tạo tệp tin.
-    \item Định dạng 64-bit Offset: Giới thiệu từ phiên bản 3.6.0, định dạng này hỗ trợ kích thước biến và tệp tin lớn hơn.
-    \item Định dạng netCDF-4/HDF5: Xuất hiện từ phiên bản 4.0, sử dụng định dạng dữ liệu HDF5 với một số hạn chế.
-    \item Định dạng HDF4 SD: Hỗ trợ chủ yếu cho việc đọc dữ liệu.
-    \item Định dạng CDF5: Hỗ trợ được đồng bộ với dự án parallel-netcdf.
+    \item Classic Format: Initially used in the first version of netCDF and remains the default choice for file creation.
+    \item 64-bit Offset Format: Introduced since version 3.6.0, this format supports larger variable and file sizes.
+    \item netCDF-4/HDF5 Format: Introduced in version 4.0, utilizing the HDF5 data format with some limitations.
+    \item HDF4 SD Format: Primarily supports data reading.
+    \item CDF5 Format: Synchronized support with the parallel-NetCDF project.
 \end{enumerate}
 
-Tất cả các định dạng này đều thể hiện tính tự mô tả, với một phần tiêu đề chi tiết mô tả cấu trúc của tệp tin, bao gồm các mảng dữ liệu và siêu dữ liệu tệp tin dưới dạng thuộc tính tên/giá trị. Thiết kế này đảm bảo tính độc lập với nền tảng, với các vấn đề như endianness được giải quyết một cách linh hoạt thông qua các thư viện phần mềm.
+All these formats exhibit self-description, with a detailed header part describing the file structure, including data arrays and file metadata in the form of attribute name/value pairs. This design ensures platform independence, with issues such as endianness being flexibly addressed through software libraries.
 
-Hãy xem xét ví dụ cụ thể về việc lưu trữ các thông số khí tượng quan trọng như nhiệt độ, độ ẩm, áp suất, tốc độ và hướng gió trong các tệp tin netCDF. Điều này minh họa khả năng của định dạng này trong xử lý các bộ dữ liệu khoa học đa dạng, cung cấp một phương tiện mạnh mẽ và linh hoạt để quản lý thông tin đa chiều.
+Consider a specific example of storing essential meteorological parameters such as temperature, humidity, pressure, wind speed, and direction in netCDF files. This illustrates the capability of this format in handling diverse scientific datasets, providing a powerful and flexible means to manage multidimensional information.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{Images/ncdump.png}
     \vspace{1em}
-    \caption{Thông tin radar ở định dạng NETCDF. Số chiều của bộ dữ liệu tổng cộng là 2975 chiều, được phân nhóm cho 4 nhãn khác nhau.}
+    \caption{Radar information in NETCDF format. The total dimensions of the dataset are 2975, grouped into 4 distinct labels.}
     \label{fig:enter-label}
 \end{figure}
 
+Starting from version 4.0, the netCDF API introduces the ability to use the HDF5 data format.
+This crucial integration allows netCDF users to create HDF5 files, unlocking benefits such as significantly larger file sizes and support for unlimited dimensions.
+This step marks a significant move towards leveraging the extended advantages of the HDF5 format.
 
-Bắt đầu từ phiên bản 4.0, API netCDF giới thiệu khả năng sử dụng định dạng dữ liệu HDF5. Sự tích hợp quan trọng này cho phép người dùng netCDF tạo tệp tin HDF5, mở khóa những lợi ích như kích thước tệp tin lớn hơn đáng kể và hỗ trợ cho nhiều chiều không giới hạn. Bước tiến này đánh dấu một bước quan trọng hướng tới việc tận dụng những ưu điểm mở rộng của định dạng HDF5.
-
-NetCDF Classic và Định dạng 64-bit Offset là tiêu chuẩn quốc tế của Open Geospatial Consortium\cite{ogcnetcdf}, thể hiện sự chắc chắn và độ tin cậy trong việc đảm bảo khả năng tương thích và mở rộng của định dạng netCDF trên toàn cầu.
+NetCDF Classic and 64-bit Offset Formats are international standards of the Open Geospatial Consortium \cite{ogcnetcdf}, demonstrating the robustness and reliability in ensuring the compatibility and global scalability of the netCDF format.

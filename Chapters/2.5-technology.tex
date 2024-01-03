@@ -12,11 +12,16 @@ Apache Airflow not only delivers robust performance but also brings flexibility 
 
 \subsection{Kubernetes}
 
-Kubernetes, an open-source system for managing and deploying highly flexible applications in cloud and data center environments, has evolved into one of the most widely adopted tools in the field of Information Technology \cite{k8s-doc}. Originally developed by Google and later transferred to the Cloud Native Computing Foundation (CNCF), Kubernetes aims to automate the deployment, scaling, and management of containerized applications, alleviating the burden on developers and system administrators. The platform offers a unified foundation for deploying, scaling, and managing containerized applications across multiple servers.
+Kubernetes, an open-source system for managing and deploying highly flexible applications in cloud and data center environments,
+has evolved into one of the most widely adopted tools in the field of Information Technology \cite{k8s-doc}.
+Originally developed by Google and later transferred to the Cloud Native Computing Foundation (CNCF),
+Kubernetes aims to automate the deployment, scaling, and management of containerized applications, alleviating the burden on developers and system administrators. The platform offers a unified foundation for deploying, scaling, and managing containerized applications across multiple servers.
 
 Kubernetes operates based on key concepts such as Pods, Services, ReplicaSets, and various other abstractions, creating a flexible environment for application deployment and management. This fosters an environment where developers can easily build applications, and system administrators can efficiently maintain them.
 
 Beyond supporting traditional deployment models, Kubernetes paves the way for innovative strategies like Continuous Deployment (CD) and Microservices. With the ability to automate many aspects of the development and deployment process, Kubernetes plays a crucial role in constructing and sustaining complex, flexible, and scalable systems.
+
+\subsubsection{Kubernetes Components}
 
 Introducing essential concepts for managing and deploying applications, Kubernetes provides an effective and flexible environment. The main components of Kubernetes include Pod, ReplicaSet, Deployment, and Service.
 
@@ -27,17 +32,53 @@ Introducing essential concepts for managing and deploying applications, Kubernet
     \label{fig:k8s-comps}
 \end{figure}
 
-In Kubernetes, a \textbf{Pod} serves as the fundamental unit, representing a collection of containers that share a common workspace. Within the same Pod, containers collaborate by sharing network and storage resources, fostering interaction and enabling the construction of intricate applications.
+In Kubernetes, a \textbf{Pod} serves as the fundamental unit, representing a collection of containers that share a common workspace.
+Within the same Pod, containers collaborate by sharing network and storage resources, fostering interaction and enabling the construction of intricate applications.
 
-The \textbf{ReplicaSet}, a crucial resource in Kubernetes, ensures a designated number of Pods operate in a specified manner. In the event of a Pod failure or shutdown, the ReplicaSet automatically initiates the creation of a new Pod to replace it. This mechanism ensures the application's stable state by guaranteeing a defined number of Pods are consistently operational.
+The \textbf{ReplicaSet}, a crucial resource in Kubernetes, ensures a designated number of Pods operate in a specified manner.
+In the event of a Pod failure or shutdown, the ReplicaSet automatically initiates the creation of a new Pod to replace it.
+This mechanism ensures the application's stable state by guaranteeing a defined number of Pods are consistently operational.
 
-For managing the deployment and updating processes of applications, \textbf{Deployment} is a key component in Kubernetes. It articulates the desired state of the application and orchestrates the updating of the ReplicaSet to achieve that state. Deployment provides versatile management capabilities, facilitating the deployment of new versions, rollbacks, and updates without disrupting the service.
+For managing the deployment and updating processes of applications, \textbf{Deployment} is a key component in Kubernetes.
+It articulates the desired state of the application and orchestrates the updating of the ReplicaSet to achieve that state.
+Deployment provides versatile management capabilities, facilitating the deployment of new versions, rollbacks, and updates without disrupting the service.
 
-The \textbf{Service} resource in Kubernetes furnishes an HTTP port to Pods, generating a unique IP address and DNS name for a cluster of Pods. This enables seamless communication among applications within the cluster and with external environments. Service effectively simplifies the intricacies of handling multiple Pods and IP addresses, offering a straightforward means of accessing services within the Kubernetes environment.
+The \textbf{Service} resource in Kubernetes furnishes an HTTP port to Pods, generating a unique IP address and DNS name for a cluster of Pods.
+This enables seamless communication among applications within the cluster and with external environments.
+Service effectively simplifies the intricacies of handling multiple Pods and IP addresses, offering a straightforward means of accessing services within the Kubernetes environment.
 
-Typically, large-scale systems leverage Kubernetes in their software development and deployment processes. This adoption brings several advantages, including efficient resource management and self-recovery capabilities. Kubernetes optimizes resource utilization, ensuring optimal performance and reducing waste. Additionally, it automatically addresses issues during operations, enhancing high availability.
+Typically, large-scale systems leverage Kubernetes in their software development and deployment processes.
+This adoption brings several advantages, including efficient resource management and self-recovery capabilities.
+Kubernetes optimizes resource utilization, ensuring optimal performance and reducing waste.
+Additionally, it automatically addresses issues during operations, enhancing high availability.
 
-However, the technology is not without its challenges, including a steep learning curve for beginners. Mastery of diverse knowledge areas such as computer networking and containerization is necessary. Moreover, deploying and maintaining Kubernetes demands significant resources, both in terms of personnel and hardware, particularly for smaller organizations.
+However, the technology is not without its challenges, including a steep learning curve for beginners.
+Mastery of diverse knowledge areas such as computer networking and containerization is necessary.
+Moreover, deploying and maintaining Kubernetes demands significant resources, both in terms of personnel and hardware, particularly for smaller organizations.
+
+\subsubsection{High Availability in Kubernetes}
+
+High Availability is a crucial factor in the success of any system. In Kubernetes, High Availability is achieved through the combination of several features, including self-healing, load balancing, and auto-scaling.
+
+First, Kubernetes uses \textbf{Deployment}, a type of \textbf{Controller} for managing replicas.
+Through Deployment, we can easily perform horizontal scaling, which is the process of increasing the number of replicas of a Pod.
+This mechanism ensures that the application can handle numerous requests without compromising performance.
+Moreover, in case of a Pod failure, a Deployment makes sure that a new Pod is created to replace it, ensuring the amounts of predefined replicas is always maintained.
+
+At network layers, Kubernetes uses \textbf{Service} for communication between various components within or outside the cluster.
+Instead of directly accessing Pods, other components can access Services, which will redirect the request to the appropriate Pod.
+When Pods are replaced, the Service will automatically update the routing rules to ensure the request is sent to the correct Pod.
+Outside the cluster, Kubernetes also uses \textbf{Ingress} to manage external access to Services.
+Instead of specifying the direct node IP address, Clients can abstract it by using only the URL or hostname.
+
+Finally, at the storage level, Kubernetes provides Persistent Volumes.
+By doing so, applications can be agnostic to the underlying storage infrastructure.
+This allows for easier management and scaling of storage resources.
+Not only that, depending on the provided \textbf{Storage Class}, Kubernetes makes sure that the data is replicated to multiple nodes,
+ensuring data availability in case of node failure.
+
+To summarize, Kubernetes provides a robust set of features to ensure High Availability.
+By leveraging these features, we can build a highly available system that can scale with our load, while also being resilient to failures.
 
 \subsection{LROSE}
 
