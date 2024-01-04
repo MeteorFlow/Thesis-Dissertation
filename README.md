@@ -73,12 +73,12 @@ And do I need to tell you about the usefulness of [Grammarly](https://www.gramma
 
 Yes, but
 
-- In overleaf, you have to pay 40$ to get the git feature which isn't even have the best or full git experience.
-- Pay 40$ to collaborate with more than 1 person
+- In overleaf, you have to pay $40 to get the git feature which isn't even have the best or full git experience.
+- Pay $40 to collaborate with more than 1 person
 - No VSCode, Code formatting, Grammarly, Or Dark Mode / Customization
 - GitHub Copilot: Clippy, but a lot better!
 
-## Whats New
+## What's New
 
 - [GitHub Copilot](#github-copilot)
 - Added support for the up-to-date texlive-full package. Now, You can stop worrying about package support.
@@ -111,8 +111,8 @@ Generated PDFs will be saved to **`/PDF`** directory
 ## Editor Instructions
 
 1. Pressing `Ctrl+S` will save the document and generate PDF in the **PDF** folder
-2. To check the generated PDF click on the PDF file. However **It will take 20/30 seconds to open the preview for the first time. So, do not panic**. After that, it will generate and preview the pdf instantly.
-3. Your code will be automatically saved and the PDF will generate automatically each time you edit something
+2. To check the generated PDF click on the PDF file. However, **It will take 20/30 seconds to open the preview for the first time. So, do not panic**. After that, it will generate and preview the PDF instantly.
+3. Your code will be automatically saved, and the PDF will generate automatically each time you edit something
 4. You can see all the error logs in the **Terminal > Output > Latex Compiler** as well as in the Latex Workshop sidebar
 5. If it shows **Error showing PDF** or in case of any inconvenience, just reload the browser or press `Ctrl+R`
 6. **Just use it as you use Visual Studio Code**
@@ -176,11 +176,11 @@ And in case you do not want to use Grammarly for other files, add your file exte
 
 You can use Grammarly in any file apart from `.tex` files. Just press `CTRL + SHIFT + P` and search for `Grammarly: Check text`.
 
-This editor uses Grammarly Free account to check grammar and spelling. However if you want to use your Grammarly Premium account, simply press `CTRL + SHIFT + P` and search for `Grammarly: Login / Connect your account`.
+This editor uses Grammarly Free account to check grammar and spelling. However, if you want to use your Grammarly Premium account, simply press `CTRL + SHIFT + P` and search for `Grammarly: Login / Connect your account`.
 
 ## LanguageTools
 
-This editor has built-in [LanguageTool](https://languagetool.org) support for `BibTEX`, `ConTEXt`, `LATEX`, `Markdown`, `Org`, `reStructuredText`, `R Sweave`, and `XHTML` documents but **it is disabled by default in favor of grammarly**. If you want to use LanguageTool instead of grammarly, just **uncomment** the following lines from `.devcontainer/devcontainer.json`
+This editor has built-in [LanguageTool](https://languagetool.org) support for `BibTEX`, `ConTEXt`, `LATEX`, `Markdown`, `Org`, `reStructuredText`, `R Sweave`, and `XHTML` documents, but **it is disabled by default in favor of grammarly**. If you want to use LanguageTool instead of grammarly, just **uncomment** the following lines from `.devcontainer/devcontainer.json`
 
   ```json
   "extensions": [
@@ -220,7 +220,7 @@ If you do not need the Live Collaboration at all, you can just **remove** or **c
 
 ## PDF Viewer Dark Mode
 
-The pdf viewer will preview the pdf in Dark Mode by default if your Operating System is in Dark Mode. To view the pdf in Normal mode in os-wide dark mode just **remove or comment** these lines from `./.devcontainer/devcontainer.json`.
+The PDF viewer will preview the PDF in Dark Mode by default if your Operating System is in Dark Mode. To view the PDF in Normal mode in os-wide dark mode just **remove or comment** these lines from `./.devcontainer/devcontainer.json`.
 
   ```json
     //"latex-workshop.view.pdf.color.dark.pageColorsBackground":"#171717",
@@ -251,7 +251,7 @@ There are a lot of features like
 
 And a lot [more](https://github.com/James-Yu/LaTeX-Workshop/wiki/ExtraFeatures).
 
-All of the features and configurations can be found [here](https://github.com/James-Yu/LaTeX-Workshop/wiki).
+All the features and configurations can be found [here](https://github.com/James-Yu/LaTeX-Workshop/wiki).
 
 ## Contribution
 
@@ -273,5 +273,5 @@ I am open to and request you to contribute to this project. You can just Create 
 
 ## Contact
 
-1. Send an email to `mail@sanjibsen.com`
+1. Send email to `mail@sanjibsen.com`
 2. [Facebook](https://www.facebook.com/sanjib.kumarsen.963/), [LinkedIn](https://www.linkedin.com/in/sanjibsen/)
