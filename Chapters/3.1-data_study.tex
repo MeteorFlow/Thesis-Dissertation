@@ -78,3 +78,26 @@ our team was able to open the provided data and visualize it using the LROSE too
     \caption{HawkEye visualization tool}
     \label{fig:hawkeye}
 \end{figure}
+
+During our investigation, we also encountered a different set of tools that can interact with the radar files, called PyART.
+When compared with LROSE-core, our team found that PyART contains many more advantages.
+
+First, PyART is a Python library.
+This means that it is easier to install and use, especially for people who are already familiar with Python.
+Moreover, by supporting Python, our team can incorporate it into many popular ETL tools that use Python.
+Take Apache Airflow as an example, instead of having to write a custom operator to call LROSE-core from the terminal,
+we can use a Task to perform the same action with PyART. Doing so would reduce much of the complexity of the workflow.
+
+\subsection{Visualizing data using PyART}
+When installed, PyART also downloads another Python tool named Cartopy \cite{Cartopy}. This library provides many useful features
+for our understanding of the data, such as the ability to plot the data on a map, or to convert the coordinates from one system to another.
+
+Using these libraries, we can visualize our data directly from a Jupyter Notebook, similar to any other Python data visualization task. Also, by zooming out from the map, we can see the whole area that the radar covers, which is the district of Nha Be.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/3.1-nha-be-radar-visualize-far.png}
+    \caption{Data visualization of Nha Be radar - Map of Vietnam}
+    \label{fig:nha-be-viz-far}
+\end{figure}
+
