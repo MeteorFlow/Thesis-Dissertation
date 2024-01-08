@@ -4,11 +4,23 @@ This section describes the processes and steps that our team took to study the d
 
 The provided data resides inside two parent directories:
 
-\begin{verbatim}
-    data
-    |--- convert
-    |--- UF
-\end{verbatim}
+\begin{figure}[H]
+    \dirtree{%
+        .1 data.
+        .2 convert.
+        .3 mdv.
+        .2 UF.
+        .3 NHB190513012007.RAW23DN.
+        .3 NHB190510231240.RAW97JC.
+        .3 \dots .
+        .3 NHB190510231240.uf.
+        .3 NHB190510231240.uf.
+        .3 \dots .
+    }
+    \vspace{2em}
+    \caption{Directory structure of the provided data}
+\end{figure}
+
 
 For the \texttt{convert} directory, it seems like the data there has been converted from the other \texttt{UF} files.
 Compared with the original, these files do not store as many necessary fields,
@@ -74,8 +86,9 @@ our team was able to open the provided data and visualize it using the LROSE too
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/3.5-hawk-eye.png}
-    \caption{HawkEye visualization tool}
+    \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-hawkeye.png}
+    \vspace{2em}
+    \caption{Data visualization of Nha Be radar from HawkEye - Map of Vietnam}
     \label{fig:hawkeye}
 \end{figure}
 
@@ -88,16 +101,34 @@ Moreover, by supporting Python, our team can incorporate it into many popular ET
 Take Apache Airflow as an example, instead of having to write a custom operator to call LROSE-core from the terminal,
 we can use a Task to perform the same action with PyART. Doing so would reduce much of the complexity of the workflow.
 
+Secondly, with default configurations, PyART represents the data as an XArray \cite{hoyer2017xarray} format,
+which is also a popular format for multidimensional data. As XArray is built on top of NumPy \cite{harris2020array},
+this popular library can receive wider adoption when compared with many other formats.
+Integration with the existing library also means that we can use many other tools to work with the data.
+For instance, we can use Matplotlib to visualize the data;
+or use the library SciPy \cite{2020SciPy-NMeth} to perform scientific calculations on the data. Because those tools require NumPy,
+we can use them directly with PyART without having to convert the data to another format.
+
+Finally, PyART also has more comprehensive documentation when compared with LROSE.
+As newcomers to the subject of meteorology, we found that the documentation of PyART is much more accessible than LROSE.
+The documentation includes many examples and tutorials. Moreover, the documentation also contains many references to other resources,
+such as the book \textit{Radar for Meteorological and Atmospheric Observations} \cite{2022Weather}.
+Even though this is a subjective opinion, we believe that the documentation of PyART is much more helpful for further development.
+
+With all the above ideas, our teams decided to use PyART for both the study and the development of the project.
+
 \subsection{Visualizing data using PyART}
 When installed, PyART also downloads another Python tool named Cartopy \cite{Cartopy}. This library provides many useful features
 for our understanding of the data, such as the ability to plot the data on a map, or to convert the coordinates from one system to another.
 
-Using these libraries, we can visualize our data directly from a Jupyter Notebook, similar to any other Python data visualization task. Also, by zooming out from the map, we can see the whole area that the radar covers, which is the district of Nha Be.
+Using these libraries, we can visualize our data directly from a Jupyter Notebook, similar to any other Python data visualization task.
+The area that the radar collects is a square, with the radar at the center. All of its length extends to about 300 kilometers in each direction.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/3.1-nha-be-radar-visualize-far.png}
-    \caption{Data visualization of Nha Be radar - Map of Vietnam}
+    \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-pyart.png}
+    \vspace{2em}
+    \caption{Data visualization of Nha Be radar from PyART - Map of Vietnam - similar zoom to Figure \ref{fig:hawkeye}}
     \label{fig:nha-be-viz-far}
 \end{figure}
 
