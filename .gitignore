@@ -299,3 +299,29 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+# macOS system files that might appear in every directory
+.DS_Store
+
+# Finder custom folder settings
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Icon file
+Icon?
+
+# Thumbnails
+._*
+
+# Files that store metadata
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Xcode
+*.xcuserdata
+*.xcworkspace
+*.xcuserstate
