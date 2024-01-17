@@ -4,22 +4,22 @@ This section describes the processes and steps that our team took to study the d
 
 The provided data resides inside two parent directories:
 
-\begin{figure}[H]
-    \dirtree{%
-        .1 data.
-        .2 convert.
-        .3 mdv.
-        .2 UF.
-        .3 NHB190513012007.RAW23DN.
-        .3 NHB190510231240.RAW97JC.
-        .3 \dots .
-        .3 NHB190510231240.uf.
-        .3 NHB190510231240.uf.
-        .3 \dots .
-    }
-    \vspace{2em}
-    \caption{Directory structure of the provided data}
-\end{figure}
+% \begin{figure}[H]
+%     \dirtree{%
+%         .1 data.
+%         .2 convert.
+%         .3 mdv.
+%         .2 UF.
+%         .3 NHB190513012007.RAW23DN.
+%         .3 NHB190510231240.RAW97JC.
+%         .3 \dots .
+%         .3 NHB190510231240.uf.
+%         .3 NHB190510231240.uf.
+%         .3 \dots .
+%     }
+%     \vspace{2em}
+%     \caption{Directory structure of the provided data}
+% \end{figure}
 
 
 For the \texttt{convert} directory, it seems like the data there has been converted from the other \texttt{UF} files.
@@ -85,11 +85,11 @@ in the documentation. As a result, it took us a lot of time to figure out how to
 our team was able to open the provided data and visualize it using the LROSE tools, whose name was \texttt{HawkEye}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-hawkeye.png}
-    \vspace{2em}
-    \caption{Data visualization of Nha Be radar from HawkEye - Map of Vietnam}
-    \label{fig:hawkeye}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-hawkeye.png}
+  \vspace{2em}
+  \caption{Data visualization of Nha Be radar from HawkEye - Map of Vietnam}
+  \label{fig:hawkeye}
 \end{figure}
 
 During our investigation, we also encountered a different set of tools that can interact with the radar files, called PyART.
@@ -98,7 +98,7 @@ When compared with LROSE-core, our team found that PyART contains many more adva
 First, PyART is a Python library.
 This means that it is easier to install and use, especially for people who are already familiar with Python.
 Moreover, by supporting Python, our team can incorporate it into many popular ETL tools that use Python.
-Take Apache Airflow as an example, instead of having to write a custom operator to call LROSE-core from the terminal,
+Take Apache Airflow as an example. Instead of having to write a custom operator to call LROSE-core from the terminal,
 we can use a Task to perform the same action with PyART. Doing so would reduce much of the complexity of the workflow.
 
 Secondly, with default configurations, PyART represents the data as an XArray \cite{hoyer2017xarray} format,
@@ -125,10 +125,10 @@ Using these libraries, we can visualize our data directly from a Jupyter Noteboo
 The area that the radar collects is a square, with the radar at the center. All of its length extends to about 300 kilometers in each direction.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-pyart.png}
-    \vspace{2em}
-    \caption{Data visualization of Nha Be radar from PyART - Map of Vietnam - similar zoom to Figure \ref{fig:hawkeye}}
-    \label{fig:nha-be-viz-far}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Images/3.1-201905130120.DBZ-pyart.png}
+  \vspace{2em}
+  \caption{Data visualization of Nha Be radar from PyART - Map of Vietnam - similar zoom to Figure \ref{fig:hawkeye}}
+  \label{fig:nha-be-viz-far}
 \end{figure}
 

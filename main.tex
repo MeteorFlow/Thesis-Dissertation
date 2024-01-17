@@ -1,11 +1,17 @@
 \documentclass[12pt, a4paper]{report}
-% \usepackage{minted}
-% \usepackage[english,vietnam]{babel}
-% \usepackage[utf8]{inputenc}
-\usepackage{vntex}
+\usepackage[english,vietnamese]{babel}
+\usepackage{titlesec}
+
+\titleformat{\chapter} % command
+  [display] % shape
+  {\bfseries\huge} % format
+  {Chapter \thechapter} % label
+  {0pt} % sep
+  {} % before-code
+
+
+\usepackage[T5]{fontenc}
 \usepackage{mathptmx}[ptm]
-%\usepackage[utf8]{inputenc}
-%\usepackage[francais]{babel}
 \usepackage{a4wide, amssymb, epsfig, latexsym, array, hhline, fancyhdr}
 \usepackage[normalem]{ulem}
 %\usepackage{soul}
@@ -78,17 +84,7 @@
 }
 \lstset{style=mystyle}
 
-%\usepackage{pstcol} 								% PSTricks with the standard color package
 
-\usepackage[normalem]{ulem}
-
-\newtheorem{theorem}{{\bf Định lý}}
-\newtheorem{property}{{\bf Tính chất}}
-\newtheorem{proposition}{{\bf Mệnh đề}}
-\newtheorem{corollary}[proposition]{{\bf Hệ quả}}
-\newtheorem{lemma}[proposition]{{\bf Bổ đề}}
-\theoremstyle{definition}
-\newtheorem{exer}{Bài toán}
 
 \def\thesislayout{	% A4: 210 × 297
 	\geometry{
@@ -215,7 +211,7 @@
 % Declare a variable named Proc using \newcommand
 \newcommand{\Proc}{Assoc. Prof. Dr. Lê Hồng Trang }
 
-\newcommand{\Uni}{Trường Đại Học Bách Khoa - Đại học Quốc gia TP.HCM }
+\newcommand{\Uni}{Ho Chi Minh University - Vietnam National Unversity, Ho Chi Minh City}
 
 \renewcommand{\labelitemi}{\normalfont\bfseries\textendash}
 \renewcommand{\labelitemii}{\textbullet}
@@ -283,13 +279,13 @@
 \input{Chapters/0-prolouge}
 
 %\thispagestyle{empty}
-\chapter*{Bảng phân công công việc}
+\chapter*{Work Assignment}
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
   \begin{tabular}{|c|c|c|l|}
     \hline
-    \textbf{STT}       & \textbf{Họ và tên}                 & \textbf{MSSV}            & \textbf{Phân chia công việc}                 \\
+    \textbf{No.}       & \textbf{Full name}                 & \textbf{Student ID}      & \textbf{Work Assignment}                     \\
     \hline
     %%%%%Student 1%%%%%%%%%%%
     \multirow{4}{*}{1} & \multirow{4}{*}{Trần Hà Tuấn Kiệt} & \multirow{4}{*}{2011493} & - Exploratory Data Analysis                  \\
@@ -306,28 +302,40 @@
   \end{tabular}
 \end{table}
 \newpage
+
+% Revert title name back to English
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\bibname}{References}
+\renewcommand{\figurename}{Figure}
+
 \tableofcontents
 \newpage
+
 %\thispagestyle{empty}
 \listoffigures
 \listoftables
+
+% \renewcommand\thechapter{Chapter \arabic{chapter}}
+
 \chapter{Introduction}
-\section{Phát biểu bài toán}
+\section{Problem statement}
 \input{Chapters/1.1-problem_statement}
-\section{Động lực thực hiện}
+\section{Motivation}
 \input{Chapters/1.2-motivation}
-\section{Mục tiêu dự án}
+\section{Project objective}
 \input{Chapters/1.3-goal}
-\section{Phạm vi dự án}
+\section{Project scope}
 \input{Chapters/1.4-scope}
 
 \newpage
-\chapter{Cơ sở lý thuyết}
-\section{Hệ Cơ sở dữ liệu}
+\chapter{Theoretical basis}
+\section{Database management system}
 \input{Chapters/2.1-database}
-\section{Hệ thống dữ liệu}
+\section{Database system}
 \input{Chapters/2.2-data_sys}
-\section{Lý thuyết về khí tượng}
+\section{Basic of hydrometeorology}
 \input{Chapters/2.3-meteorology}
 \section{Common Data format in meteorology}
 \input{Chapters/2.4-data_format.tex}
@@ -337,9 +345,9 @@
 \newpage
 \chapter{System Analysis and Design}
 \section{Overview}
-\input{Chapters/3.0-Overview}
+\input{Chapters/3.0-Overview.tex}
 \section{Exploratory Data Analysis}
-\input{Chapters/3.1-data_study}
+\input{Chapters/3.1-data_study.tex}
 \section{Data Model}
 \input{Chapters/3.2-data_model.tex}
 \section{System Architecture}
@@ -371,19 +379,3 @@
 
 \end{document}
 
-% \section{Apache Spark}
-% \section{Apache Airflow}
-% \section{Kubernetes}
-% \section{LROSE}
-% \section{FastAPI}
-
-% \newpage
-% \chapter{Thăm dò dữ liệu}
-%     \input{Chapters/2.0-data_study}
-%     \section{Mô tả dữ liệu}
-%     \input{Chapters/2.2-data_description}
-%     \newpage
-%     \section{Phân tích Khám phá Dữ liệu}
-%     \input{Chapters/2.3-eda}
-%     \section{Kết luận}
-%     \input{Chapters/2.4-chapter_conclusion}
