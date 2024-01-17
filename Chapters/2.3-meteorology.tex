@@ -15,6 +15,9 @@
 % \footnote{Tên tiếng Việt của các thuật ngữ sẽ được căn cứ dựa trên TCVN 12636-12 : 2021 \cite{vn_meteor_standard}}
 % Radar thời tiết là một loại cảm biến có khả năng phát sóng vô tuyến (bước sóng trong phạm vi từ 250 - 1000 kW) \cite{2022Weather}. Để gia tăng cường độ sóng, một chảo antent (attenna dish) hình parabol được sử dụng nhằm hội tụ bước sóng. Radar có thể nâng và hạ (tuỳ theo yêu cầu) để thu nhập thông tin tại các vị trí chỉ định trong không gian 3 chiều.
 
+Weather radar, short for weather surveillance radar, is a type of radar system used to detect and monitor precipitation,
+as well as other atmospheric phenomena such as the movement of severe weather systems.
+It plays a crucial role in meteorology and helps meteorologists track and forecast weather conditions.
 Normally, weather radars are programmed to scan in an azimuth of $360^o$.
 For every round, the radar will scan at a different altitude.
 It usually takes about four to ten minutes for the radar to complete a full scan.
@@ -39,7 +42,6 @@ It usually takes about four to ten minutes for the radar to complete a full scan
 
 For PPI representation, the radar will scan the entire azimuth, but only at a certain altitude.
 The final result would be similar to a map on a flat surface.
-
 For RHI, in contrast, the radar retains the azimuth but increases in altitude.
 The collected result gives viewers more details about the height and sizes of a meteorologist event.
 
@@ -116,8 +118,9 @@ Meteorologists are usually interested in this number because it is proportional 
     \centering
     \includegraphics[width=.55\textwidth]{Images/2.1-radial-velocity.png}
     \vspace{2em}
-    \caption{Illustrate the velocity situations that a Doppler radar can observe. (a) When the wind direction at point M coincides with the radius of the circle centered at the radar, the radar can determine the velocity at this point. (b) When the wind direction is tangent to the circle, the radar cannot determine the velocity. (c) Analyzing the wind direction at M into two perpendicular velocities, the radar can only determine the velocity vector along $M_r$.}
+    \caption{Illustration for the velocity situations that a Doppler radar can observe. (a) When the wind direction at point M coincides with the radius of the circle centered at the radar, the radar can determine the velocity at this point. (b) When the wind direction is tangent to the circle, the radar cannot determine the velocity. (c) Analyzing the wind direction at M into two perpendicular velocities, the radar can only determine the velocity vector along $M_r$.  - \citet{2022Weather}}
     \label{fig:radial-velocity}
 \end{figure}
 
-When the radio waves from these Doppler radars propagate to the molecules in the air, the displacement of these particles causes a phase shift between the transmitted and received signals. Radars rely on this information to calculate the wind velocity at various points in space.
+When the radio waves from these Doppler radars propagate to the molecules in the air, the displacement of these particles causes a phase shift between the transmitted and received signals.
+Radars rely on this information to calculate the wind velocity at various points in space.
