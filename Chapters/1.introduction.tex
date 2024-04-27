@@ -1,0 +1,177 @@
+\section{Problem statement}
+
+In recognizing the need for National Meteorological Services (NMHSs) to improve
+their climate data and monitoring services, there is a deliberate focus on those
+aspects of climate data management wishing to make the transition to a modern
+climate database management system and, just as important, on what skills,
+systems and processes need to be in place to ensure that operations are
+sustained. In the context of the ever-growing complexity of climate change, the
+task of creating an integrated database for short-term forecasting systems in
+the fields of meteorology and hydrology poses a considerable challenge. The
+question at hand is how we can optimize the management of weather information
+from multiple sources and store it efficiently in a database. This optimization
+is crucial to ensure the provision of synchronized and high-quality information
+to support forecasting systems.
+
+\section{Motivation}
+
+
+Information about the weather has been recorded in manuscript form for many
+centuries. The early records included notes on extreme and, sometimes,
+catastrophic events and also on phenomena such as the freezing and thawing dates
+of rivers, lakes and seas, which have taken on a higher profile with recent
+concerns about climate change.
+
+Specific journals for the collection and retention of climatological information
+have been used over the last two or three centuries (WMO 2005). The development
+of instrumentation to quantify meteorological phenomena and the dedication of
+observers to maintaining methodical, reliable and well-documented records paved
+the way for the organized management of climate data. Since the 1940s,
+standardized forms and procedures gradually became more prevalent and, once
+computer systems were being used by NMHSs, these forms greatly assisted the
+computerized data entry process and consequently the development of computer
+data archives. The latter part of the twentieth century saw the routine exchange
+of weather data in digital form and many meteorological and related data centers
+took the opportunity to directly capture and store these in their databases.
+Much was learned about automatic methods of collecting and processing
+meteorological data in the late 1950s, a period that included the International
+Geophysical Year and the establishment of the World Weather Watch. The WMO’s
+development of international guidelines and standards for climate data
+management and data exchange assisted NMHSs in organizing their data management
+activities and, less directly, also furthered the development of regional and
+global databases. Today, the management of climate records requires a systematic
+approach that encompasses paper records, microfilm/microfiche records and
+digital records, where the latter include image files as well as the traditional
+alphanumeric representation.
+
+Before electronic computers, mechanical devices played an important part in the
+development of data management. Calculations were made using comptometers, for
+example, with the results being recorded on paper. A major advance occurred with
+the introduction of the Hollerith system of punch cards, sorters and tabulators.
+These cards, with a series of punched holes recording the values of the
+meteorological variables, were passed through the sorting and tabulating
+machines enabling more efficient calculation of statistics. The 1960s and 1970s
+saw several NMHSs implementing electronic computers and gradually the
+information from many millions of punched cards was transferred to magnetic
+tape. These computers were replaced with increasingly powerful mainframe systems
+and data were made available online through developments in disk technology.
+
+Aside from advances in database technologies, more efficient data capture was
+made possible through the mid-to-late 1990s with an increase in automatic
+weather stations (AWSs), electronic field books (i.e. on-station notebook
+computers used to enter, quality control and transmit observations), the
+Internet and other advances in technology. Not surprisingly, there are a number
+of trends already underway that suggest there are many further benefits for
+NMHSs in managing data and servicing their clients. The Internet is already
+delivering greatly improved data access capabilities and, providing security
+issues are managed, we can expect major opportunities for data managers in the
+next five to ten years. In addition, Open Source7 relational database systems
+may also remove the cost barriers to relational databases for many NMHSs over
+this period.
+
+\section{Project Goal}
+
+It is essential that both the development of climate databases and the
+implementation of data management practices take into account the needs of the
+existing, and to the extent that it is predictable, future data users. While at
+first sight this may seem intuitive, it is not difficult to envisage situations
+where, for example, data structures have been developed that omit data important
+for a useful application or where a data centre commits too little of its
+resources to checking the quality of data for which users demand high quality.
+
+In all new developments, data managers should either attempt to have at least
+one key data user as part of their project team or undertake some regular
+consultative process with a group of user stakeholders. Data providers or data
+users within the organization may also have consultative processes with end
+users of climate data (or information) and data managers should endeavour to
+keep abreast of both changes in needs and any issues that user communities have.
+Put simply, data management requires awareness of the needs of the end users.
+
+At present, the key demand factors for data managers are coming from climate
+prediction, climate change, agriculture and other primary industries, health,
+disaster/emergency management, energy, natural resource management (including
+water), sustainability, urban planning and design, finance and insurance. Data
+managers must remain cognizant that the existence of the data management
+operation is contingent on the centre delivering social, economic and
+environmental benefit to the user communities it serves. It is important,
+therefore, for the data manager to encourage and, to the extent possible,
+collaborate in projects which demonstrate the value of its data resource. Even
+an awareness of studies that show, for example, the economic benefits from
+climate predictions or the social benefits from having climate data used in a
+health warning system, can be useful in reminding senior NMHS managers or
+convincing funding agencies that data are worth investing in. Increasingly,
+value is being delivered through integrating data with application models (e.g.
+crop simulation models, economic models) and so integration issues should be
+considered in the design of new data structures.
+
+\section{Project Scope}
+
+This project focuses on Ho Chi Minh City, a sprawling metropolis with a distinct
+climate that significantly impacts the daily lives of its residents. To provide
+the most valuable weather insights, we will implement a two-pronged approach.
+
+Firstly, We will conduct research and collect data from the meteorological and
+hydrological monitoring stations in the city to ensure diversity and
+representation of local weather conditions. At the same time, we will proceed
+with preprocessing and standardizing the data to ensure accuracy and consistency
+of the dataset. Based on what we have collected, we will populate the data to
+proper formats and structures.
+
+Secondly, this project entails the development of a comprehensive data platform.
+This platform will integrate a central database, designed to efficiently store
+and manage weather information from diverse sources. By consolidating these
+disparate data streams, we aim to create a unified and dependable resource for
+weather data. This platform is anticipated to significantly enhance the workflow
+of end-users and will be built with scalability in mind to accommodate future
+growth in data volume and user demand.
+
+\section{Stakeholders}
+
+\subsection{The National Center for Hydrometeorological Forecasting (NCHMF)}
+
+The National Center for Hydrometeorological Forecasting (NCHMF), abbreviated for
+"Trung tâm Dự báo khí tượng thuỷ văn quốc gia" \ in Vietnamese, is an
+organizational unit under the General Department of Meteorology and Hydrology,
+Ministry of Natural Resources and Environment\cite{NMHS}. The National
+Hydro-Meteorological Forecasting Center has several crucial missions, including
+the establishment and presentation of standards and technical regulations for
+meteorological and hydrological forecasting, the operation of the national
+forecasting and warning system, monitoring and reporting on weather conditions
+and climate change, issuing and disseminating forecast bulletins and warnings,
+and participating in international meteorological agreements. Additionally, the
+center is responsible for conducting research, application, and technology
+transfer related to forecasting and warning, and implementing administrative
+reform and anti-corruption measures. These key missions contribute significantly
+to the center's role in ensuring public safety and providing timely essential
+meteorological and hydrological information.
+
+\subsection{Nha Be Weather Radar Station}
+
+The Nha Be weather radar station is located on Nguyen Van Tao Street, Long Thoi
+Commune, Nha Be District, Ho Chi Minh City. This radar station has been in
+operation since 2004 and is managed by the Southern Region Hydro-Meteorological
+Center. Its mission is to monitor and supervise weather phenomena within a
+radius of 480 km from the center of Ho Chi Minh City, and to provide warnings
+and forecasts for dangerous weather conditions such as storms, tropical
+depressions, and thunderstorms within a radius of 300 km. Additionally, the
+station serves the purpose of forecasting rain and heavy rain for the Ho Chi
+Minh City area within a radius of approximately 120 km.
+
+The Nha Be weather radar station is of the Doppler DWSR-2500C type, operating on
+the C-band frequency. It is manufactured by the U.S. company EEC and has the
+capability to scan signals within a radius of 300 km. In addition to being the
+forecasting center for the entire Southern region and Ho Chi Minh City, the Nhà
+Bè radar station also has the task of predicting rain and providing data for the
+flood control center of Ho Chi Minh City.
+
+
+\section{Solutions}
+
+Our product, the Weather Data Platform (WDP), is designed to be a one-stop shop
+for harnessing the power of weather data. It caters to the specific needs of a
+wide range of users, including meteorologists, academics, researchers, and
+developers from various fields. Whether you're a freelancer, a large
+corporation, or a non-profit organization, WDP can be your central hub for
+integrating, analyzing, and visualizing weather data – and much more.
+
+\section{Achievements and Contribution}

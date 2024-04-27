@@ -1,34 +1,57 @@
-The implementation phase of the team will be an extension to the current system, which is outlined in Figure \ref{fig:sow}.
+The implementation phase of the team will be an extension to the current system,
+which is outlined in Figure \ref{fig:sow}.
 
-In step 3, the team will set up a simple SFTP server. SFTP is a straightforward and widely used protocol, supported by numerous libraries and tools for communication based on this protocol.
-Additionally, compared to FTP, the mentioned protocol ensures security during data transfer.
-Depending on the permissions, the team may assist the observation station in constructing scripts to automatically forward processed files or allow manual file submission.
+In step 3, the team will set up a simple SFTP server. SFTP is a straightforward
+and widely used protocol, supported by numerous libraries and tools for
+communication based on this protocol. Additionally, compared to FTP, the
+mentioned protocol ensures security during data transfer. Depending on the
+permissions, the team may assist the observation station in constructing scripts
+to automatically forward processed files or allow manual file submission.
 
-Once files are uploaded to the SFTP server, the team utilizes Airflow to orchestrate all existing ETL workflows in the overall system. Currently, the team pauses with a single DAG to process data from the Nha Be observation station. Airflow monitors newly added files on our SFTP server and initiates the ETL process. The choice of Apache Spark is based on the volume and complexity of the data. If the data size per new SIGMET file is manageable with Python alone, without the need for Spark, it will not be employed in this step.
+Once files are uploaded to the SFTP server, the team utilizes Airflow to
+orchestrate all existing ETL workflows in the overall system. Currently, the
+team pauses with a single DAG to process data from the Nha Be observation
+station. Airflow monitors newly added files on our SFTP server and initiates the
+ETL process. The choice of Apache Spark is based on the volume and complexity of
+the data. If the data size per new SIGMET file is manageable with Python alone,
+without the need for Spark, it will not be employed in this step.
 
-Meteorological data, upon reaching the team's infrastructure, will be bifurcated into two main streams: Metadata, such as creation date, size, timestamp, etc., will be stored in a traditional Relational Database Management System (RDBMS). Specifically, PostgreSQL is chosen due to its popularity and the team's familiarity. Storing metadata here facilitates rapid query responses without direct access to the raw data. Common queries may include:
+Meteorological data, upon reaching the team's infrastructure, will be bifurcated
+into two main streams: Metadata, such as creation date, size, timestamp, etc.,
+will be stored in a traditional Relational Database Management System (RDBMS).
+Specifically, PostgreSQL is chosen due to its popularity and the team's
+familiarity. Storing metadata here facilitates rapid query responses without
+direct access to the raw data. Common queries may include:
 
 \begin{itemize}
-    \item What timestamps are being recorded? (e.g., from 21/11/2023 to 17/12/2023)
+    \item What timestamps are being recorded? (e.g., from 21/11/2023 to
+    17/12/2023)
     \item At timestamp $x$, what are the geographical coordinates of the radar?
     \item What fields of data are currently stored?
 \end{itemize}
 
-Additionally, the database acts as an index, quickly identifying the storage location of raw data.
+Additionally, the database acts as an index, quickly identifying the storage
+location of raw data.
 
-For specific hydrometeorological data, the team finds it inefficient to store them directly in conventional DBMS.
-Simultaneously, storing data in files still maintains a reasonable overall size.
-Therefore, the team decides to separate the raw data and store it directly in files.
-This approach, combined with the previously mentioned indexes, accelerates the retrieval process.
+For specific hydrometeorological data, the team finds it inefficient to store
+them directly in conventional DBMS. Simultaneously, storing data in files still
+maintains a reasonable overall size. Therefore, the team decides to separate the
+raw data and store it directly in files. This approach, combined with the
+previously mentioned indexes, accelerates the retrieval process.
 
-To facilitate data queries for models, machine learning, AI, etc., the team will develop a simple backend server using Python's FastAPI at step 5.
-In step 6, the backend receives query data in REST API format, queries the metadata DB and data files, and returns the achieved results.
-During different training instances, Machine Learning entities can connect to this server to retrieve data.
+To facilitate data queries for models, machine learning, AI, etc., the team will
+develop a simple backend server using Python's FastAPI at step 5. In step 6, the
+backend receives query data in REST API format, queries the metadata DB and data
+files, and returns the achieved results. During different training instances,
+Machine Learning entities can connect to this server to retrieve data.
 
-It's worth mentioning that the entire system will be developed and operated in a containerized manner and will be deployed on the Kubernetes platform.
-This reflects the system's ability to maintain high availability and ease of solution maintenance.
-In this illustration, the team will deploy it on a cluster of Raspberry Pi-embedded computers.
+It's worth mentioning that the entire system will be developed and operated in a
+containerized manner and will be deployed on the Kubernetes platform. This
+reflects the system's ability to maintain high availability and ease of solution
+maintenance. In this illustration, the team will deploy it on a cluster of
+Raspberry Pi-embedded computers.
 
-Lastly, in step 7, the team proposes an additional consideration.
-If suitable, the team may build a DataLoader to swiftly serve other model-making groups.
-Considering the popularity of Pytorch in AI, the team will initially approach this platform.
+Lastly, in step 7, the team proposes an additional consideration. If suitable,
+the team may build a DataLoader to swiftly serve other model-making groups.
+Considering the popularity of Pytorch in AI, the team will initially approach
+this platform.
