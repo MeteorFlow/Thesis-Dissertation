@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage[english,vietnamese]{babel}
+\usepackage[english]{babel}
 \usepackage{titlesec}
 
 \titleformat{\chapter} % command
@@ -177,6 +177,16 @@
         \small
         \begin{center}
 	{\bfseries Abstract \vspace{-.5em}\vspace{\z@}}
+        \end{center}
+        \quotation
+    }{}
+\makeatother
+
+\makeatletter
+\newenvironment{abstrsss}{
+        \small
+        \begin{center}
+	{\bfseries Abstractss \vspace{-.5em}\vspace{\z@}}
         \end{center}
         \quotation
     }{}
@@ -376,4 +386,3 @@
 \bibliography{refs}
 
 \end{document}
-

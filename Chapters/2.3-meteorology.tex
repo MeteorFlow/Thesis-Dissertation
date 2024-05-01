@@ -10,7 +10,6 @@
 \newpage
 \subsection{Basic terminologies}
 
-
 \subsubsection{Weather Radar}
 % \footnote{Tên tiếng Việt của các thuật ngữ sẽ được căn cứ dựa trên TCVN
 % 12636-12 : 2021 \cite{vn_meteor_standard}} Radar thời tiết là một loại cảm
@@ -92,15 +91,12 @@ From the radar equation, we can derive the formula for reflectivity:
 \[
     \text{dBZ} = 10\left[ \log\left( \frac{P_R}{P_T} \right) + 2 \log\left( \frac{R}{R_1} \right) - 2\log\left| \frac{K}{L_a} \right| - \log\left( b \right) \right]
 \]
-\vspace{0.5cm}
 
-Meteorologists are usually interested in this number because it is proportional
-to the amount of precipitation.
-\vspace{0.5cm}
+Meteorologists are usually interested in this number because it is proportional to the amount of precipitation.
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|l|}
         \hline
         Value (dBZ) & Weather               \\
         \hline
@@ -124,7 +120,6 @@ to the amount of precipitation.
     \label{fig:reflectivity-nhabe}
 \end{figure}
 
-
 \subsubsection{Radial velocity}
 
 \begin{figure}[H]
@@ -141,29 +136,22 @@ to the amount of precipitation.
     \label{fig:radial-velocity}
 \end{figure}
 
-When the radio waves from these Doppler radars propagate to the molecules in the
-air, the displacement of these particles causes a phase shift between the
-transmitted and received signals. Radars rely on this information to calculate
-the wind velocity at various points in space.
+When the radio waves from these Doppler radars propagate to the molecules in the air, the displacement of these particles causes a phase shift between the transmitted and received signals. Radars rely on this information to calculate the wind velocity at various points in space.
 
 \subsection{Radar Products}
 
 \subsubsection{Echo Top Height (ETH)}
-An echo top, in radar meteorology, signifies the highest altitude at which
-precipitation particles are detected. Essentially, it helps us pinpoint the
-maximum elevation angle where the intensity of precipitation, quantified by
-reflectivity, surpasses a predetermined threshold. This information is crucial
-for understanding the vertical extent of precipitation systems and their
-potential impact. ## Overview
+An echo top, in radar meteorology, signifies the highest altitude at which precipitation particles are detected. Essentially, it helps us pinpoint the maximum elevation angle where the intensity of precipitation, quantified by reflectivity, surpasses a predetermined threshold. This information is crucial for understanding the vertical extent of precipitation systems and their potential impact. 
+
+\subsubsubsection*{\underline {Overview}}
 
 The modified ETH algorithm, developed by Lakshmanan et al. (2013) [Lakshmanan et
 al. (2013):
-https://journals.ametsoc.org/view/journals/wefo/28/2/waf-d-12-00084_1.xml], can
+https://journals.ametsoc.org/view/journals/wefo/28/2/waf-d-12-00084\_1.xml], can
 be applied to a NEXRAD PPI volume scan by following these steps:
-
-**1. Finding Echo Top Height:**
-
-Locate the maximum elevation angle, denoted by $\theta_{b}$, where the
+\begin{enumerate}
+    \item \textbf{Finding Echo Top Height:} \\
+    Locate the maximum elevation angle, denoted by $\theta_{b}$, where the
 reflectivity, $Z_{b}$, surpasses a predefined echo-top reflectivity threshold,
 $Z_T$ (e.g., 0 dBZ, 18 dBZ). If $\theta_{b}$ is not the highest elevation scan
 available in the volume, obtain the reflectivity value, $Z_{a}$, at the
@@ -172,15 +160,16 @@ to calculate the echo-top height, $\theta_T$:
 
 $$\theta_T = \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b$$
 
-**2. Handling Highest Elevation Scan:**
-
-If $\theta_{b}$ coincides with the highest elevation scan accessible, set
-    $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power
-    beamwidth. This scenario arises when: * Far from the radar: Higher elevation
-    scans possess shorter ranges compared to a baseline "surveillance" scan. *
-    Very close to the radar: The highest elevation scan fails to capture the
+    \item \textbf{Handling Highest Elevation Scan:}\\
+    If $\theta_{b}$ coincides with the highest elevation scan accessible, set
+    $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power beamwidth. This scenario arises when:
+    \begin{itemize}
+        \item Far from the radar: Higher elevation
+    scans possess shorter ranges compared to a baseline "surveillance" scan.
+        \item Very close to the radar: The highest elevation scan fails to capture the
     cloud's peak.
-
+    \end{itemize}
+    
 Under these circumstances, $\theta_{T}$ corresponds to the top of the beam
 containing reflectivity greater than or equal to $Z_T$. In essence, the
 traditional echo-top computation is adopted when no data exists from higher
@@ -195,3 +184,5 @@ scan} \end{cases}$$
 
 This equation incorporates a conditional statement to account for the two
 scenarios based on the availability of data from higher elevation scans.
+
+\end{enumerate}
