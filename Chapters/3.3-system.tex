@@ -1,8 +1,8 @@
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{Images/4.1-architecture.jpg}
+    \includegraphics[width=\linewidth]{Images/arch.png}
     \vspace{1em}
-    \caption{System Design - Proposed}
+    \caption{System Architecture}
     \label{fig:sow}
 \end{figure}
 \vspace{0.5cm}
@@ -62,13 +62,9 @@ components that benefit all layers. The Domain layer sits at the heart of the
 application, defining core entities and their behaviors. A common base class
 promotes code maintainability within this layer. The Application layer
 orchestrates request routing and establishes project-wide contracts for
-implementation in other layers. Its role in routing makes it ideal for
-implementing the CQRS pattern.
-
-Clean Architecture emphasizes the testability of each layer through unit tests.
-Frameworks like xUnit simplify unit test creation. Following CQRS best
-practices, this layer features separate "Command" and "Query" models to handle
-different data operations.
+implementation in other layers. Clean Architecture emphasizes the testability of
+each layer through unit tests. Frameworks like xUnit simplify unit test
+creation. 
 
 The Infrastructure layer provides supporting services for the application.
 Cross-cutting concerns like logging reside here. User registration,
