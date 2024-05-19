@@ -1,0 +1,257 @@
+\subsection{Core API}
+
+\subsubsection*{GET /api/core/definition}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Definition \\
+\hline
+\textbf{Description} & Retrieves a list of all core definitions. \\
+\hline
+\textbf{Responses} & 200: An array of core definitions returned successfully. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/core/definition}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Definition \\
+\hline
+\textbf{Description} & Creates a new core definition. \\
+\hline
+\textbf{Request Body} & AppDefinitions schema. \\
+\hline
+\textbf{Responses} & 201: Core definition created successfully. \\
+ & 400: Bad request if the data is invalid. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{GET /api/core/definition/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Definition \\
+\hline
+\textbf{Description} & Retrieves a specific core definition by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the core definition. \\
+\hline
+\textbf{Responses} & 200: Core definition returned successfully. \\
+ & 404: Core definition not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{DELETE /api/core/definition/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Definition \\
+\hline
+\textbf{Description} & Deletes a specific core definition by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the core definition. \\
+\hline
+\textbf{Responses} & 200: Core definition deleted successfully. \\
+ & 404: Core definition not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/core/instance}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Instance \\
+\hline
+\textbf{Description} & Creates a new instance. \\
+\hline
+\textbf{Request Body} & AppInstances schema. \\
+\hline
+\textbf{Responses} & 201: Instance created successfully. \\
+ & 400: Bad request if the data is invalid. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{GET /api/core/instance/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Instance \\
+\hline
+\textbf{Description} & Retrieves a specific instance by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the instance. \\
+\hline
+\textbf{Responses} & 200: Instance returned successfully. \\
+ & 404: Instance not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{DELETE /api/core/instance/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Instance \\
+\hline
+\textbf{Description} & Deletes a specific instance by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the instance. \\
+\hline
+\textbf{Responses} & 200: Instance deleted successfully. \\
+ & 404: Instance not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{GET /api/core/setting}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Setting \\
+\hline
+\textbf{Description} & Retrieves a list of all settings. \\
+\hline
+\textbf{Responses} & 200: An array of settings returned successfully. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/core/setting}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Setting \\
+\hline
+\textbf{Description} & Creates a new setting. \\
+\hline
+\textbf{Request Body} & AppSettings schema. \\
+\hline
+\textbf{Responses} & 201: Setting created successfully. \\
+ & 400: Bad request if the data is invalid. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{GET /api/core/setting/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Setting \\
+\hline
+\textbf{Description} & Retrieves a specific setting by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the setting. \\
+\hline
+\textbf{Responses} & 200: Setting returned successfully. \\
+ & 404: Setting not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{DELETE /api/core/setting/\{id\}}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Setting \\
+\hline
+\textbf{Description} & Deletes a specific setting by ID. \\
+\hline
+\textbf{Parameters} & id: UUID of the setting. \\
+\hline
+\textbf{Responses} & 200: Setting deleted successfully. \\
+ & 404: Setting not found. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{GET /configuration}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & FileConfiguration \\
+\hline
+\textbf{Description} & Retrieves the current configuration. \\
+\hline
+\textbf{Responses} & 200: Configuration returned successfully. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /configuration}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & FileConfiguration \\
+\hline
+\textbf{Description} & Updates the current configuration. \\
+\hline
+\textbf{Request Body} & FileConfiguration schema. \\
+\hline
+\textbf{Responses} & 200: Configuration updated successfully. \\
+ & 400: Bad request if the data is invalid. \\
+ & 401: Unauthorized access. \\
+\hline
+\end{longtable}
+
+\subsection{Indentity API}
+
+\subsubsection*{GET /api/auth}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Auth \\
+\hline
+\textbf{Description} & Retrieves authentication status based on the returnUrl parameter. \\
+\hline
+\textbf{Parameters} & returnUrl (string): The URL to return to after authentication. \\
+\hline
+\textbf{Responses} & 200: Authentication status returned successfully. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/auth/login}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Auth \\
+\hline
+\textbf{Description} & Logs in a user with provided credentials. \\
+\hline
+\textbf{Request Body} & LoginInfo schema: Includes username and password. \\
+\hline
+\textbf{Responses} & 200: Login successful. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/users/\{id\}/passwordresetemail}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Users \\
+\hline
+\textbf{Description} & Sends a password reset email to the user specified by ID. \\
+\hline
+\textbf{Parameters} & id (string, uuid): Unique identifier of the user. \\
+\hline
+\textbf{Responses} & 200: Password reset email sent successfully. \\
+\hline
+\end{longtable}
+
+\subsubsection*{PUT /api/users/\{id\}/password}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Users \\
+\hline
+\textbf{Description} & Updates the password for the user specified by ID. \\
+\hline
+\textbf{Parameters} & id (string, uuid): Unique identifier of the user. \\
+\hline
+\textbf{Request Body} & PasswordSetter schema: Includes new password and confirmation. \\
+\hline
+\textbf{Responses} & 200: Password updated successfully. \\
+ & 404: User not found. \\
+\hline
+\end{longtable}
+
+\subsubsection*{POST /api/users/\{id\}/emailaddressconfirmation}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3cm}|p{10cm}|}
+\hline
+\textbf{Tags} & Users \\
+\hline
+\textbf{Description} & Sends an email confirmation to the user specified by ID. \\
+\hline
+\textbf{Parameters} & id (string, uuid): Unique identifier of the user. \\
+\hline
+\textbf{Responses} & 200: Email confirmation sent successfully. \\
+\hline
+\end{longtable}
