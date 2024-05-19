@@ -1,13 +1,22 @@
+Meteorology is the scientific study of the atmosphere that focuses on weather
+processes and forecasting. It involves the study of the behavior, dynamics, and
+physical properties of the earth's atmosphere and how these factors affect the
+weather and climate. Meteorologists use various tools and techniques, including
+weather satellites, radars, and computer models, to predict weather conditions
+and to understand the complex interactions within the atmosphere.
 
-\begin{figure}[htp!]
+Meteorology is important for several reasons, such as predicting weather to warn
+of severe conditions, understanding climate change, and aiding in
+decision-making for agriculture, aviation, and other industries dependent on
+weather.
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{Images/radar_concept.png}
-    \vspace{1em}
-    \caption{A typical meteorological radar - \cite{2022Weather}}
+    \vspace{2cm}
+    \caption{A typical meteorological radar \cite{2022Weather}}
     \label{fig:radar}
 \end{figure}
 
-\newpage
 \subsection{Basic terminologies}
 
 \subsubsection{Weather Radar}
@@ -27,7 +36,13 @@ Normally, weather radars are programmed to scan in an azimuth of $360^o$. For
 every round, the radar will scan at a different altitude. It usually takes about
 four to ten minutes for the radar to complete a full scan.
 
-\begin{figure}[htp!]
+For PPI representation, the radar will scan the entire azimuth, but only at a
+certain altitude. The final result would be similar to a map on a flat surface.
+For RHI, in contrast, the radar retains the azimuth but increases in altitude.
+The collected result gives viewers more details about the height and sizes of a
+meteorologist event.
+
+\begin{figure}[H]
     \centering
     \begin{subfigure}{\textwidth}
         \centering
@@ -45,11 +60,7 @@ four to ten minutes for the radar to complete a full scan.
 
 \end{figure}
 
-For PPI representation, the radar will scan the entire azimuth, but only at a
-certain altitude. The final result would be similar to a map on a flat surface.
-For RHI, in contrast, the radar retains the azimuth but increases in altitude.
-The collected result gives viewers more details about the height and sizes of a
-meteorologist event.
+
 
 \begin{figure}[H]
     \centering
@@ -92,7 +103,8 @@ From the radar equation, we can derive the formula for reflectivity:
     \text{dBZ} = 10\left[ \log\left( \frac{P_R}{P_T} \right) + 2 \log\left( \frac{R}{R_1} \right) - 2\log\left| \frac{K}{L_a} \right| - \log\left( b \right) \right]
 \]
 
-Meteorologists are usually interested in this number because it is proportional to the amount of precipitation.
+Meteorologists are usually interested in this number because it is proportional
+to the amount of precipitation.
 
 \begin{table}[h]
     \centering
@@ -136,12 +148,20 @@ Meteorologists are usually interested in this number because it is proportional 
     \label{fig:radial-velocity}
 \end{figure}
 
-When the radio waves from these Doppler radars propagate to the molecules in the air, the displacement of these particles causes a phase shift between the transmitted and received signals. Radars rely on this information to calculate the wind velocity at various points in space.
+When the radio waves from these Doppler radars propagate to the molecules in the
+air, the displacement of these particles causes a phase shift between the
+transmitted and received signals. Radars rely on this information to calculate
+the wind velocity at various points in space.
 
 \subsection{Radar Products}
 
 \subsubsection{Echo Top Height (ETH)}
-An echo top, in radar meteorology, signifies the highest altitude at which precipitation particles are detected. Essentially, it helps us pinpoint the maximum elevation angle where the intensity of precipitation, quantified by reflectivity, surpasses a predetermined threshold. This information is crucial for understanding the vertical extent of precipitation systems and their potential impact. 
+An echo top, in radar meteorology, signifies the highest altitude at which
+precipitation particles are detected. Essentially, it helps us pinpoint the
+maximum elevation angle where the intensity of precipitation, quantified by
+reflectivity, surpasses a predetermined threshold. This information is crucial
+for understanding the vertical extent of precipitation systems and their
+potential impact. 
 
 \subsubsubsection*{\underline {Overview}}
 
@@ -162,12 +182,13 @@ $$\theta_T = \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b$$
 
     \item \textbf{Handling Highest Elevation Scan:}\\
     If $\theta_{b}$ coincides with the highest elevation scan accessible, set
-    $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power beamwidth. This scenario arises when:
+    $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power
+    beamwidth. This scenario arises when:
     \begin{itemize}
-        \item Far from the radar: Higher elevation
-    scans possess shorter ranges compared to a baseline "surveillance" scan.
-        \item Very close to the radar: The highest elevation scan fails to capture the
-    cloud's peak.
+        \item Far from the radar: Higher elevation scans possess shorter ranges
+    compared to a baseline "surveillance" scan.
+        \item Very close to the radar: The highest elevation scan fails to
+    capture the cloud's peak.
     \end{itemize}
     
 Under these circumstances, $\theta_{T}$ corresponds to the top of the beam
