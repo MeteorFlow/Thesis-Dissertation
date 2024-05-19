@@ -1,11 +1,7 @@
 name: Create Release and Upload PDF
 
 on:
-  workflow_dispatch:
-    inputs:
-      run_id:
-        description: 'Workflow Run ID to download artifacts from'
-        required: true
+  workflow_dispatch:  # Manual trigger only
 
 jobs:
   create_release:
@@ -13,13 +9,13 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Download PDF from Artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
-        name: compiled-pdf
-        workflow_run_id: ${{ github.event.inputs.run_id }}
+        path: compiled-pdf
+        name: man.pdf
 
     - name: Create Release
       id: create_release
@@ -27,7 +23,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: 'release-${{ github.run_id }}'  # Customize this tag as needed
+        tag_name: 'release-${{ github.run_id }}'  # You can customize this tag
         release_name: Release ${{ github.run_number }}
         draft: false
         prerelease: false
