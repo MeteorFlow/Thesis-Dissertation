@@ -1,70 +1,103 @@
-\section{Functional Requirement}
+\subsection{Functional Requirement}
 
-\begin{enumerate}
-  \item Data ingestion from various sources, including APIs and government data
-  repositories.
-  \item Data storage and management, potentially utilizing databases or data
-  lakes.
-  \item Data analysis and visualization capabilities tailored for meteorologists
-  and researchers.
-  \item Integration with third-party platforms and APIs.
-  \item User management and access control mechanisms.
-  \item Reporting and alerting functionalities.
-\end{enumerate}
+\textbf{Data ingestion} is the initial step where data is gathered from various
+sources, including \textbf{APIs} and \textbf{government data repositories}. This
+process is critical for accumulating the diverse datasets required for thorough
+analysis.
 
-\section{Non-Functional Requirements}
+The next phase involves \textbf{data storage} and \textbf{management}. This may
+be carried out using databases or \textbf{data lakes}, providing robust
+solutions for handling extensive volumes of data effectively.
 
-\begin{enumerate}
-  \item \textbf{Reliability:}
-  \begin{itemize}
-      \item Ensure high availability and stable operation of the platform.
-      \item Maintain data integrity, security, and privacy as top priorities.
-  \end{itemize}
-  
-  \item \textbf{Scalability:}
-  \begin{itemize}
-      \item Ability to scale and handle increasing volumes of data loads.
-      \item Leverage cloud-native technologies and containerization for easy
-      scaling of infrastructure and applications.
-  \end{itemize}
-  
-  \item \textbf{Performance:}
-  \begin{itemize}
-      \item Rapid data processing and analysis capabilities.
-  \end{itemize}
-  
-  \item \textbf{Usability:}
-  \begin{itemize}
-      \item Intuitive and user-friendly interface tailored for different user
-      groups.
-  \end{itemize}
-  
-  \item \textbf{Security:}
-  \begin{itemize}
-      \item Robust data protection and access control mechanisms.
-  \end{itemize}
-  
-  \item \textbf{Compliance:}
-  \begin{itemize}
-      \item Adhere to applicable regulatory standards, data privacy laws, and
-      compliance requirements.
-  \end{itemize}
-  
-  \item \textbf{Scaling Technology and Infrastructure:}
-  \begin{itemize}
-      \item Adopt cloud-native architectures and containerization technologies
-      (e.g., Docker, Kubernetes) to facilitate easy scaling of the platform's
-      infrastructure and applications.
-      \item Leverage auto-scaling capabilities and elastic resources provided by
-      cloud platforms to dynamically adjust capacity based on demand.
-      \item Implement microservices architecture and decoupled components for
-      independent scaling of individual services or modules.
-  \end{itemize}
-\end{enumerate}
+\textbf{Data analysis} and \textbf{visualization} are tailored specifically to
+support the needs of \textbf{meteorologists} and \textbf{researchers}. These
+tools are crucial for the detailed examination and interpretation of
+meteorological data.
 
-\section{Data Requirements}
+\textbf{Integration} with third-party platforms and \textbf{APIs} enhances the
+system's functionality, enabling seamless interactions with other technological
+tools.
+
+The system incorporates \textbf{user management} and \textbf{access control
+mechanisms} to ensure data security and accessibility only to authorized
+personnel, maintaining data integrity and confidentiality.
+
+Lastly, the system includes \textbf{reporting} and \textbf{alerting
+functionalities} that are vital for communicating essential information to
+users, stakeholders, and decision-makers in a timely and efficient manner.
+
+\subsection{Non-Functional Requirements}
+
+\textbf{Reliability} is a critical component, requiring the platform to ensure
+high availability and stable operation consistently. It is also crucial to
+maintain \textbf{data integrity}, \textbf{security}, and \textbf{privacy} as top
+priorities to protect user information and system data.
+
+\textbf{Scalability} needs to be addressed to handle increasing volumes of data.
+The system should have the ability to scale efficiently, leveraging
+\textbf{cloud-native technologies} and \textbf{containerization} such as Docker
+and Kubernetes, to facilitate easy scaling of infrastructure and applications.
+
+In terms of \textbf{performance}, the platform must offer rapid data processing
+and analysis capabilities to meet the demands of real-time decision making and
+large-scale data handling.
+
+\textbf{Usability} is essential, with a focus on providing an intuitive and
+\textbf{user-friendly interface} that is tailored for different user groups to
+ensure ease of use and accessibility.
+
+\textbf{Security} measures must include robust data protection and access
+control mechanisms to safeguard against unauthorized access and potential data
+breaches.
+
+\textbf{Compliance} with applicable regulatory standards, data privacy laws, and
+compliance requirements is mandatory to ensure that the platform operates within
+legal constraints.
+
+Lastly, expanding on \textbf{scaling technology and infrastructure}, the
+platform should adopt \textbf{cloud-native architectures} and containerization
+technologies to enable easy scaling. Utilizing auto-scaling capabilities and
+elastic resources provided by cloud platforms allows for dynamic adjustment of
+capacity based on demand. Additionally, implementing a \textbf{microservices
+architecture} and decoupled components will enable independent scaling of
+individual services or modules, enhancing overall system resilience and
+flexibility.
+
+\subsection{Data Requirements}
 % TODO: How data is stored, processed and 
 
-How radar file are processed, cleaned, stored and used
-Storing data as blob - Radar Object (Minio)
-Caching
+% How radar file are processed, cleaned, stored and used Storing data as blob -
+% Radar Object (Minio) Caching
+The initial step in handling radar data involves a comprehensive
+\textbf{cleaning process}. This is crucial to remove any \textbf{noise} and
+extraneous data, ensuring the accuracy and reliability of the data. Cleaning
+radar files is essential as it preps them for more complex processing and
+analysis, which are critical for accurate meteorological assessments.
+
+Once the radar data has been cleaned, it undergoes a sophisticated
+\textbf{processing routine}. Specialized algorithms analyze the data to extract
+meaningful patterns and information, structuring it into a format that can be
+easily utilized in further analyses. This step is vital for transforming raw
+data into actionable insights that can be relied upon for decision-making.
+
+After processing, the data is stored as \textbf{blobs} in an object storage
+system, typically \textbf{Minio}. This method of storage is selected for its
+scalability and ease of access, which are necessary attributes for managing the
+voluminous data generated by radar systems. Blob storage also facilitates the
+efficient retrieval and management of data, supporting dynamic access patterns
+required by meteorological applications.
+
+To further enhance data handling efficiency, a \textbf{caching mechanism} is
+implemented. This system stores recently accessed data temporarily,
+significantly reducing retrieval times and ensuring that frequently needed
+information is readily available. This feature is particularly important during
+critical situations, such as severe weather events, where timely data access is
+crucial.
+
+The processed and stored radar data is extensively used across various
+applications. Meteorologists rely on this data for accurate \textbf{weather
+forecasting} and \textbf{climate modeling}. It is also crucial for
+\textbf{emergency response teams} who depend on real-time data for effective
+decision-making during weather-related emergencies. Furthermore, the data
+supports a broad range of scientific research, aiding in the study of climate
+patterns and atmospheric conditions.
