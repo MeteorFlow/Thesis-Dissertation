@@ -2,7 +2,68 @@
 % Naming convention Data format
 
 \subsection{Data modeling}
+In developing a comprehensive software system, it's crucial to approach data
+modeling with a structured and strategic framework that encompasses various
+aspects of the application's functionality and security. To provide a clear and
+logical understanding of this framework, we will explore three critical models
+that collectively define the architecture of modern software systems:
+core model, identity model, and form model. Each model serves a distinct purpose and
+complements the others, ensuring a robust, secure, and user-friendly
+application. Let's delve into these models in the order that mirrors their
+integration and importance in the development process.
 
+We begin with the core model, the backbone of our application. This model is
+where the fundamental business logic and core data structures are established.
+It defines the essential entities and their relationships that form the basis of
+the system, focusing on how data is organized and manipulated to support the
+application’s primary services and functionalities. By starting with core model,
+we set the groundwork for all other aspects of the system, highlighting the
+primary operations and data flows that are crucial for the application's
+purpose.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_core.png}
+  \vspace{1em}
+  \caption{The Core Model}
+\end{figure}
+
+Once the core functionalities are established, we shift our focus to security
+with the identity model. This model is dedicated to managing user authentication and
+authorization. It ensures that access to the information and functionalities
+defined in core model is securely controlled. By integrating Identity model, we
+discuss how the system protects sensitive data and operations from unauthorized
+access, ensuring that users can interact with the core components in a secure
+environment. This model not only reinforces the security of the system but also
+defines user roles and permissions, which are essential for a multi-user
+application. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_auth.png}
+  \vspace{1em}
+  \caption{The Identity Model}
+\end{figure}
+
+Finally, we explore the form model, which ties the user interface and
+interaction directly to the underlying data structures of the core model and the
+security protocols of the Identity model. This model addresses how users will
+experience and interact with the application through various forms and
+interfaces. It encompasses everything from data entry and management to ensuring
+that user interactions are intuitive and efficient. form model is critical for
+defining the presentation and accessibility of the system’s features, making
+sure that the application is not only functional and secure but also
+user-friendly and responsive to the needs of its users.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_form.png}
+  \vspace{1em}
+  \caption{The Form Model}
+\end{figure}
+
+By examining these models in this order, we effectively build from the internal
+architecture to the external user interface, providing a comprehensive view of
+the system's design from the ground up. This approach helps in understanding how
+each component is interlinked and why each is vital to the overall success and
+operability of the application.
 \subsection{Blob storage}
 As an intermediary entity situated between the data producers, exemplified by
 the radar center, and the data consumers, represented by the Data Model and
@@ -43,13 +104,13 @@ Primarily, the envisaged data repository must find its abode in an Object
 Storage medium, characterized by maximal interoperability with extant systems.
 This necessitates the exclusion of proprietary solutions such as Google Cloud
 Storage or Azure Storage Blob in favor of alternatives such as Hadoop
-Distributed File System (HDFS) \cite{HDFS} or any Object Storage infrastructure compliant
-with AWS S3 protocols. While HDFS presents itself as a viable candidate, the
-logistical intricacies entailed in deploying and administering a comprehensive
-HDFS cluster militate against prioritizing its adoption. Fortuitously, our
-discerning team has identified a panacea in the form of MinIO, an open-source
-Object Storage solution that not only aligns with the requisites of our project
-but also boasts compatibility with prevailing AWS S3 APIs.
+Distributed File System (HDFS) \cite{HDFS} or any Object Storage infrastructure
+compliant with AWS S3 protocols. While HDFS presents itself as a viable
+candidate, the logistical intricacies entailed in deploying and administering a
+comprehensive HDFS cluster militate against prioritizing its adoption.
+Fortuitously, our discerning team has identified a panacea in the form of MinIO,
+an open-source Object Storage solution that not only aligns with the requisites
+of our project but also boasts compatibility with prevailing AWS S3 APIs.
 
 The conundrum surrounding the optimal data format to be stored within the Object
 Storage reservoir has been a subject of fervent debate and contention amongst
@@ -82,7 +143,3 @@ any superfluous delimiters, serves to obviate compatibility issues with extant
 filesystems. Notably, the conspicuous absence of special characters such as
 hyphens and colons serves to circumvent prohibitions imposed by certain
 filesystems, such as Windows, on the usage of such characters within filenames.
-
-
-\subsection{Caching}
-

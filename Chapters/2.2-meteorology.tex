@@ -1,0 +1,280 @@
+Meteorology is the scientific study of the atmosphere that focuses on weather
+processes and forecasting. It involves the study of the behavior, dynamics, and
+physical properties of the earth's atmosphere and how these factors affect the
+weather and climate. Meteorologists use various tools and techniques, including
+weather satellites, radars, and computer models, to predict weather conditions
+and to understand the complex interactions within the atmosphere.
+
+Meteorology is important for several reasons, such as predicting weather to warn
+of severe conditions, understanding climate change, and aiding in
+decision-making for agriculture, aviation, and other industries dependent on
+weather.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/radar_concept.png}
+    \vspace{1cm}
+    \caption{A typical meteorological radar \cite{2022Weather}}
+    \label{fig:radar}
+\end{figure}
+
+\subsection{Basic terminologies}
+
+\subsubsection{Weather Radar}
+% \footnote{Tên tiếng Việt của các thuật ngữ sẽ được căn cứ dựa trên TCVN
+% 12636-12 : 2021 \cite{vn_meteor_standard}} Radar thời tiết là một loại cảm
+% biến có khả năng phát sóng vô tuyến (bước sóng trong phạm vi từ 250 - 1000 kW)
+% \cite{2022Weather}. Để gia tăng cường độ sóng, một chảo antent (attenna dish)
+% hình parabol được sử dụng nhằm hội tụ bước sóng. Radar có thể nâng và hạ (tuỳ
+% theo yêu cầu) để thu nhập thông tin tại các vị trí chỉ định trong không gian 3
+% chiều.
+
+Weather radar, short for weather surveillance radar, is a type of radar system
+used to detect and monitor precipitation, as well as other atmospheric phenomena
+such as the movement of severe weather systems. It plays a crucial role in
+meteorology and helps meteorologists track and forecast weather conditions.
+Normally, weather radars are programmed to scan in an azimuth of $360^o$. For
+every round, the radar will scan at a different altitude. It usually takes about
+four to ten minutes for the radar to complete a full scan.
+
+For PPI representation, the radar will scan the entire azimuth, but only at a
+certain altitude. The final result would be similar to a map on a flat surface.
+For RHI, in contrast, the radar retains the azimuth but increases in altitude.
+The collected result gives viewers more details about the height and sizes of a
+meteorologist event.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{Images/2.1-ppi.png}
+        \caption{Plan-Position Indicator - PPI - \cite{2022Weather}}
+        \label{fig:ppi}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{Images/2.1-rhi.png}
+        \caption{Range Height Indicator - \cite{2022Weather}}
+        \label{fig:rhi}
+    \end{subfigure}
+
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Images/2.1-ppi-and-rhi.png}
+    \caption{Comparing the result between PPI and RHI -
+    \cite{stackexchange-ppi-rhi}}
+    \label{fig:ppi-and-rhi}
+\end{figure}
+
+\subsubsection{Radar equation and Reflectivity}
+At a certain point in time, weather radar will emit a short pulse of radio wave
+($\Delta t = 0.5 - 10 \mu s$). Depending on the density of free molecules in the
+air (water vapor, smoke, ...), the energy of this wavelength will be partially
+absorbed. The wavelength intensity that the radar receives will be less than the
+intensity of the original wave. This ratio is expressed through \textbf{The
+radar equation} \cite{2022Weather}:
+
+\[
+    \left[ \frac{P_R}{P_T} \right]=\left[ b \right]\cdot\left[ \frac{|K|}{L_a} \right]^2\cdot\left[ \frac{R_1}{R} \right]^2\cdot\left[ \frac{Z}{Z_1} \right]
+\]
+\vspace{0.5cm}
+
+Which, the variables of the equation include:
+\begin{itemize}
+    \item $|K|$ unitless:
+          \begin{itemize}
+              \item $|K|^2 \approx 0.93$ for droplets
+              \item $|K|^2 \approx 0.208$ for ice crystal
+          \end{itemize}
+    \item $R (\text{km})$: distance from the radar to the target
+    \item $R_1 = \sqrt{Z_1 \cdot c \cdot \Delta t / \lambda^2}$: ratio of
+    distance
+    \item $Z$: Radar\'s reflectivity
+    \item $Z_1 = 1 \text{ mm}^6 \text{ m}^{-3}$: Radar's unit reflectivity
+\end{itemize}
+
+From the radar equation, we can derive the formula for reflectivity:
+\vspace{0.5cm}
+\[
+    \text{dBZ} = 10\left[ \log\left( \frac{P_R}{P_T} \right) + 2 \log\left( \frac{R}{R_1} \right) - 2\log\left| \frac{K}{L_a} \right| - \log\left( b \right) \right]
+\]
+
+Meteorologists are usually interested in this number because it is proportional
+to the amount of precipitation.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|}
+        \hline
+        Value (dBZ) & Weather               \\
+        \hline
+        -28         & Haze                  \\
+        -12         & Clear air             \\
+        25 - 30     & Dry snow / light rain \\
+        40 - 50     & Heavy rain            \\
+        75          & Giant hail            \\
+        \hline
+    \end{tabular}
+    \vspace{1em}
+    \caption{ Relation between reflectivity and precipitation -
+    \citet{2022Weather}}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/2.1-reflectivity_nhabe.png}
+    \vspace{1em}
+    \caption{Reflectivity from Nha Be radar}
+    \label{fig:reflectivity-nhabe}
+\end{figure}
+
+\subsubsection{Radial velocity}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.55\textwidth]{Images/2.1-radial-velocity.png}
+    \vspace{2em}
+    \caption{Illustration for the velocity situations that a Doppler radar can
+    observe. (a) When the wind direction at point M coincides with the radius of
+    the circle centered at the radar, the radar can determine the velocity at
+    this point. (b) When the wind direction is tangent to the circle, the radar
+    cannot determine the velocity. (c) Analyzing the wind direction at M into
+    two perpendicular velocities, the radar can only determine the velocity
+    vector along $M_r$.  - \citet{2022Weather}}
+    \label{fig:radial-velocity}
+\end{figure}
+
+When the radio waves from these Doppler radars propagate to the molecules in the
+air, the displacement of these particles causes a phase shift between the
+transmitted and received signals. Radars rely on this information to calculate
+the wind velocity at various points in space.
+
+\subsection{Radar Products}
+
+
+
+\subsubsection{Echo Top Height (ETH)}
+
+In radar meteorology, an echo top signifies the highest altitude at which
+precipitation particles are detected. Essentially, it pinpoints the maximum
+elevation angle where the intensity of precipitation, quantified by
+reflectivity, surpasses a predetermined threshold. This information is crucial
+for understanding the vertical extent of precipitation systems and their
+potential impact.
+
+The modified ETH algorithm, developed by Lakshmanan et al. (2013)
+\cite{lakshmanan2013}, can be applied to a NEXRAD PPI volume scan through a
+systematic approach. Initially, the maximum elevation angle, denoted by
+$\theta_{b}$, where the reflectivity, $Z_{b}$, exceeds a predefined echo-top
+reflectivity threshold, $Z_T$ (e.g., 0 dBZ, 18 dBZ), is located. If $\theta_{b}$
+is not the highest elevation scan available in the volume, the reflectivity
+value, $Z_{a}$, at the subsequent higher elevation angle, $\theta_{a}$, is
+obtained. The echo-top height, $\theta_T$, is then calculated using the
+following equation:
+
+\[ \theta_T = \frac{(Z_T - Z_a)(\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b \]
+
+In cases where $\theta_{b}$ coincides with the highest elevation scan
+accessible, $\theta_{T}$ is set to $\theta_{b} + \beta/2$, where $\beta$
+represents the half-power beamwidth. This scenario typically occurs either far
+from the radar, where higher elevation scans have shorter ranges compared to a
+baseline "surveillance" scan, or very close to the radar, where the highest
+elevation scan fails to capture the cloud's peak.
+
+Under these circumstances, $\theta_{T}$ corresponds to the top of the beam
+containing reflectivity greater than or equal to $Z_T$. Thus, the traditional
+echo-top computation is adopted when no data exists from higher elevation scans.
+
+The mathematical formulation of this can be expressed as:
+
+\[ 
+\theta_T = \begin{cases} 
+\frac{(Z_T - Z_a)(\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b & \text{if } \theta_b \text{ is not the highest elevation scan} \\
+\theta_b + \frac{\beta}{2} & \text{if } \theta_b \text{ is the highest elevation scan} 
+\end{cases}
+\]
+
+This equation incorporates a conditional statement to account for the two
+scenarios based on the availability of data from higher elevation scans.
+
+\subsubsection{Plan Position Indicator (PPI)}
+
+The Plan Position Indicator (PPI) is the most common type of radar display. It
+shows a horizontal slice of radar data at a fixed elevation angle. The PPI scan
+provides the intensity of returned echoes from targets such as raindrops,
+snowflakes, or hail. The radar emits pulses at a specific elevation angle
+$\theta$ and records the returned signal. The range $r$ to the target is
+calculated based on the time delay of the returned signal:
+
+\[
+r = \frac{c \Delta t}{2}
+\]
+
+where $c$ is the speed of light and $\Delta t$ is the time delay. The PPI
+displays this data in polar coordinates, with the azimuth angle $\phi$ and range
+$r$ as the primary variables. This display helps in determining the structure of
+storms, the intensity of precipitation, and features such as fronts and squall
+lines.
+
+\subsubsection{Constant Altitude Plan Position Indicator (CAPPI)}
+
+The Constant Altitude Plan Position Indicator (CAPPI) provides radar
+reflectivity data at a constant altitude above the radar site. This product is
+created by interpolating data from multiple elevation scans to represent
+reflectivity at a specified altitude $h$. The interpolation uses the
+reflectivity values $Z(\theta_i, r_i)$ from different elevation angles
+$\theta_i$ and ranges $r_i$, and projects them to the desired constant altitude:
+
+\[
+Z_{CAPPI}(h) = f(Z(\theta_1, r_1), Z(\theta_2, r_2), \ldots, Z(\theta_n, r_n))
+\]
+
+where $f$ denotes the interpolation function. CAPPI overcomes limitations posed
+by the Earth's curvature and terrain obstructions, providing a clearer picture
+of precipitation distribution at a constant altitude, aiding in tracking and
+analyzing the horizontal spread and intensity of precipitation within storms.
+
+\subsubsection{Maximum Echo Height (HMAX)}
+
+Maximum Echo Height (HMAX) displays the maximum altitude at which significant
+radar echoes are detected within each radar sweep area. HMAX is calculated by
+determining the highest elevation angle $\theta_i$ at which the reflectivity
+$Z_i$ exceeds a predefined threshold $Z_T$. The height $h_i$ corresponding to
+$\theta_i$ and range $r_i$ is given by:
+
+\[
+h_i = r_i \sin(\theta_i) + H_r
+\]
+
+where $H_r$ is the radar height above sea level. The maximum height $H_{max}$ is
+then:
+
+\[
+H_{max} = \max(h_i \mid Z_i \geq Z_T)
+\]
+
+HMAX helps in understanding the vertical development of thunderstorms and is
+used to gauge storm intensity and potential severe weather occurrences.
+
+\subsubsection{Composite Maximum Reflectivity (CMAX)}
+
+Composite Maximum Reflectivity (CMAX) provides a top-down view of the highest
+reflectivity measured at any altitude within the volume of a radar scan. CMAX is
+generated by compiling the maximum reflectivities $Z_{max}$ from all elevation
+scans into a single image. For each horizontal grid point $(x, y)$, CMAX is
+given by:
+
+\[
+Z_{CMAX}(x, y) = \max(Z(\theta_i, r_i) \mid (x_i, y_i) \in (x, y))
+\]
+
+where $(x_i, y_i)$ are the horizontal coordinates corresponding to the radar
+coordinates $(\theta_i, r_i)$. CMAX is valuable for identifying the strongest
+areas of storms across multiple altitudes, highlighting potential regions of
+severe weather. It allows forecasters to quickly assess the overall intensity of
+precipitation and identify the most significant storm cells over a large area.
+
