@@ -1,22 +1,18 @@
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{Images/arch.png}
-    \vspace{1em}
-    \caption{System Architecture}
-    \label{fig:sow}
-\end{figure}
-\vspace{0.5cm}
-Based on the requirements set by stakeholders and after studying the existing
-system, the team proposes the design and implementation of a Weather Data Platform. Figure
-\ref{fig:sow} illustrates the implementation of the system.
-\newpage
+In today's rapidly evolving technological landscape, building robust, scalable,
+and maintainable systems is paramount. A well-designed system architecture not
+only addresses these needs but also provides a foundation for future growth and
+adaptability. This section delves into the architecture that underpins our
+system, exploring the principles of microservices, the application of Clean
+Architecture, and the integration of various infrastructure components to create
+a cohesive and efficient solution.
 
 \subsection{Microservices}
 
 In essence, a microservices architecture decomposes a large software application
 into a collection of smaller, self-contained services. Each service plays a
 specific role and owns a well-defined business capability. These services are
-loosely coupled, meaning they interact through well-designed APIs and operate independently.
+loosely coupled, meaning they interact through well-designed APIs and operate
+independently.
 
 Microservices architectures offer a compelling approach to building software. By
 decomposing large applications into smaller, independent services, they unlock
@@ -74,3 +70,66 @@ application, while the Web API layer delivers functionality to the user.
 Finally, plugins bridge the gap between monolithic and microservices
 architectures by promoting modularity.
 
+\subsection{Recommended System Architecture}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Images/arch.png}
+    \vspace{1em}
+    \caption{System Architecture}
+    \label{fig:sow}
+\end{figure}
+\vspace{0.5cm}
+Based on the requirements set by stakeholders and after studying the existing
+system, the team proposes the design and implementation of a Weather Data
+Platform. Figure \ref{fig:sow} illustrates the implementation of the system.
+
+Central to this architecture is the use of Docker, which encapsulates the
+application's microservices in containers. This encapsulation ensures that each
+service can be deployed and scaled independently across different environments
+without compatibility issues. Docker not only facilitates easy deployment but
+also enhances the manageability and scalability of the application services,
+making the infrastructure robust and flexible.
+
+Within this architecture, a critical component is the Identity Service. This
+service is responsible for managing user authentication and authorization
+processes. It likely operates with a dedicated database that stores user
+credentials and session information, ensuring secure and efficient user access
+control. By centralizing identity management, the system can enhance security
+and simplify the integration of different services that require user
+identification and access control.
+
+The Application Services form the backbone of the system's business logic. These
+services handle the core functionalities of the application, interacting with
+the Identity Service for authentication purposes and accessing dedicated
+databases to retrieve or store data. This separation of concerns allows for
+better maintenance and scalability of the application logic, enabling each
+service to be optimized and scaled according to specific demands without
+affecting the overall system performance.
+
+An Email \& Notification Service is integral to the architecture, managing
+communications with users. This service automates the sending of emails and
+other notifications, which are crucial for user engagement and timely
+communication. By having a dedicated service for this function, the system
+ensures that notifications are handled efficiently, maintaining high performance
+even under heavy loads of communication tasks.
+
+The architecture is further supported by robust infrastructure components.
+PostgreSQL serves as the primary database management system, offering reliable
+and efficient management of structured data with its powerful SQL capabilities.
+Kafka, used as a message broker, ensures seamless and reliable data flow between
+different parts of the application, which is essential for maintaining data
+consistency and decoupling services. Meilisearch enhances the application's
+functionality by providing a fast and responsive search engine database, which
+significantly improves the user experience through quick search results. MinIO
+offers a high-performance solution for blob storage, managing unstructured data
+such as media files, backups, and logs, which supports the application’s
+scalability and data management needs. Lastly, OAuth is employed to facilitate
+secure delegated access, allowing the application to authenticate users by
+integrating with external OAuth providers like Google, thus broadening the scope
+of user accessibility and security.
+
+Each component of this architecture plays a vital role in ensuring the
+application is scalable, modular, and resilient, employing a combination of
+state-of-the-art tools and technologies to meet a broad range of operational
+requirements efficiently.
