@@ -66,7 +66,7 @@ meteorologist event.
     \centering
     \includegraphics[width=\linewidth]{Images/2.1-ppi-and-rhi.png}
     \caption{Comparing the result between PPI and RHI -
-    \cite{stackexchange-ppi-rhi}}
+        \cite{stackexchange-ppi-rhi}}
     \label{fig:ppi-and-rhi}
 \end{figure}
 
@@ -76,7 +76,7 @@ At a certain point in time, weather radar will emit a short pulse of radio wave
 air (water vapor, smoke, ...), the energy of this wavelength will be partially
 absorbed. The wavelength intensity that the radar receives will be less than the
 intensity of the original wave. This ratio is expressed through \textbf{The
-radar equation} \cite{2022Weather}:
+    radar equation} \cite{2022Weather}:
 
 \[
     \left[ \frac{P_R}{P_T} \right]=\left[ b \right]\cdot\left[ \frac{|K|}{L_a} \right]^2\cdot\left[ \frac{R_1}{R} \right]^2\cdot\left[ \frac{Z}{Z_1} \right]
@@ -92,7 +92,7 @@ Which, the variables of the equation include:
           \end{itemize}
     \item $R (\text{km})$: distance from the radar to the target
     \item $R_1 = \sqrt{Z_1 \cdot c \cdot \Delta t / \lambda^2}$: ratio of
-    distance
+          distance
     \item $Z$: Radar\'s reflectivity
     \item $Z_1 = 1 \text{ mm}^6 \text{ m}^{-3}$: Radar's unit reflectivity
 \end{itemize}
@@ -121,7 +121,7 @@ to the amount of precipitation.
     \end{tabular}
     \vspace{1em}
     \caption{ Relation between reflectivity and precipitation -
-    \citet{2022Weather}}
+        \citet{2022Weather}}
 \end{table}
 
 \begin{figure}[H]
@@ -139,12 +139,12 @@ to the amount of precipitation.
     \includegraphics[width=.55\textwidth]{Images/2.1-radial-velocity.png}
     \vspace{2em}
     \caption{Illustration for the velocity situations that a Doppler radar can
-    observe. (a) When the wind direction at point M coincides with the radius of
-    the circle centered at the radar, the radar can determine the velocity at
-    this point. (b) When the wind direction is tangent to the circle, the radar
-    cannot determine the velocity. (c) Analyzing the wind direction at M into
-    two perpendicular velocities, the radar can only determine the velocity
-    vector along $M_r$.  - \citet{2022Weather}}
+        observe. (a) When the wind direction at point M coincides with the radius of
+        the circle centered at the radar, the radar can determine the velocity at
+        this point. (b) When the wind direction is tangent to the circle, the radar
+        cannot determine the velocity. (c) Analyzing the wind direction at M into
+        two perpendicular velocities, the radar can only determine the velocity
+        vector along $M_r$.  - \citet{2022Weather}}
     \label{fig:radial-velocity}
 \end{figure}
 
@@ -161,49 +161,47 @@ precipitation particles are detected. Essentially, it helps us pinpoint the
 maximum elevation angle where the intensity of precipitation, quantified by
 reflectivity, surpasses a predetermined threshold. This information is crucial
 for understanding the vertical extent of precipitation systems and their
-potential impact. 
+potential impact.
 
 \subsubsubsection*{\underline {Overview}}
 
-The modified ETH algorithm, developed by Lakshmanan et al. (2013) [Lakshmanan et
-al. (2013):
-https://journals.ametsoc.org/view/journals/wefo/28/2/waf-d-12-00084\_1.xml], can
+The modified ETH algorithm \cite{AnImprovedMethodforEstimatingRadarEchoTopHeight}, can
 be applied to a NEXRAD PPI volume scan by following these steps:
 \begin{enumerate}
     \item \textbf{Finding Echo Top Height:} \\
-    Locate the maximum elevation angle, denoted by $\theta_{b}$, where the
-reflectivity, $Z_{b}$, surpasses a predefined echo-top reflectivity threshold,
-$Z_T$ (e.g., 0 dBZ, 18 dBZ). If $\theta_{b}$ is not the highest elevation scan
-available in the volume, obtain the reflectivity value, $Z_{a}$, at the
-subsequent higher elevation angle, $\theta_{a}$. Employ the following equation
-to calculate the echo-top height, $\theta_T$:
+          Locate the maximum elevation angle, denoted by $\theta_{b}$, where the
+          reflectivity, $Z_{b}$, surpasses a predefined echo-top reflectivity threshold,
+          $Z_T$ (e.g., 0 dBZ, 18 dBZ). If $\theta_{b}$ is not the highest elevation scan
+          available in the volume, obtain the reflectivity value, $Z_{a}$, at the
+          subsequent higher elevation angle, $\theta_{a}$. Employ the following equation
+          to calculate the echo-top height, $\theta_T$:
 
-$$\theta_T = \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b$$
+          $$\theta_T = \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} + \theta_b$$
 
     \item \textbf{Handling Highest Elevation Scan:}\\
-    If $\theta_{b}$ coincides with the highest elevation scan accessible, set
-    $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power
-    beamwidth. This scenario arises when:
-    \begin{itemize}
-        \item Far from the radar: Higher elevation scans possess shorter ranges
-    compared to a baseline "surveillance" scan.
-        \item Very close to the radar: The highest elevation scan fails to
-    capture the cloud's peak.
-    \end{itemize}
-    
-Under these circumstances, $\theta_{T}$ corresponds to the top of the beam
-containing reflectivity greater than or equal to $Z_T$. In essence, the
-traditional echo-top computation is adopted when no data exists from higher
-elevation scans.
+          If $\theta_{b}$ coincides with the highest elevation scan accessible, set
+          $\theta_{T} = \theta_{b} + \beta/2$, where $\beta$ represents the half-power
+          beamwidth. This scenario arises when:
+          \begin{itemize}
+              \item Far from the radar: Higher elevation scans possess shorter ranges
+                    compared to a baseline "surveillance" scan.
+              \item Very close to the radar: The highest elevation scan fails to
+                    capture the cloud's peak.
+          \end{itemize}
 
-This mathematical formulation can be expressed in LaTeX as:
+          Under these circumstances, $\theta_{T}$ corresponds to the top of the beam
+          containing reflectivity greater than or equal to $Z_T$. In essence, the
+          traditional echo-top computation is adopted when no data exists from higher
+          elevation scans.
 
-$$\theta_T = \begin{cases} \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} +
-\theta_b & \text{if } \theta_b \text{ is not highest elevation scan} \\
-\theta_b + \frac{\beta}{2} & \text{if } \theta_b \text{ is highest elevation
-scan} \end{cases}$$
+          This mathematical formulation can be expressed in LaTeX as:
 
-This equation incorporates a conditional statement to account for the two
-scenarios based on the availability of data from higher elevation scans.
+          $$\theta_T = \begin{cases} \frac{(Z_T - Z_a) (\theta_b - \theta_a)}{Z_b - Z_a} +
+                  \theta_b                   & \text{if } \theta_b \text{ is not highest elevation scan} \\
+                  \theta_b + \frac{\beta}{2} & \text{if } \theta_b \text{ is highest elevation
+                      scan}\end{cases}$$
+
+          This equation incorporates a conditional statement to account for the two
+          scenarios based on the availability of data from higher elevation scans.
 
 \end{enumerate}
