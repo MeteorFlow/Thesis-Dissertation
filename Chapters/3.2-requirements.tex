@@ -1,103 +1,148 @@
 \subsection{Functional Requirement}
 
-\textbf{Data ingestion} is the initial step where data is gathered from various
-sources, including \textbf{APIs} and \textbf{government data repositories}. This
-process is critical for accumulating the diverse datasets required for thorough
-analysis.
+In the initial phase of the data processing workflow, \textbf{data ingestion}
+emerges as a pivotal undertaking, wherein data is systematically amassed from a
+spectrum of heterogeneous sources, spanning from \textbf{Application Programming
+    Interfaces (APIs)} to repositories housing \textbf{government data}. This
+foundational process assumes paramount significance as it sets the groundwork
+for the acquisition of an extensive array of datasets essential for
+comprehensive analytical endeavors.
 
-The next phase involves \textbf{data storage} and \textbf{management}. This may
-be carried out using databases or \textbf{data lakes}, providing robust
-solutions for handling extensive volumes of data effectively.
+Following data ingestion, the subsequent stage revolves around \textbf{data
+    storage} and \textbf{management}. This facet encompasses the orchestration of
+repositories, potentially ranging from conventional databases to more
+contemporary constructs like \textbf{data lakes}. Such infrastructural
+modalities afford robust frameworks that adeptly cater to the exigencies imposed
+by the management of copious volumes of data, thereby ensuring efficiency and
+efficacy in handling data resources.
 
-\textbf{Data analysis} and \textbf{visualization} are tailored specifically to
-support the needs of \textbf{meteorologists} and \textbf{researchers}. These
-tools are crucial for the detailed examination and interpretation of
-meteorological data.
+Concomitant with data management, \textbf{data analysis} and
+\textbf{visualization} procedures are meticulously tailored to cater to the
+discerning requirements of stakeholders entrenched within the meteorological
+domain and academic research milieu. These analytical tools serve as
+indispensable instruments, facilitating granular scrutiny and cogent
+interpretation of meteorological datasets, thereby fostering informed
+decision-making and scholarly inquiry.
 
-\textbf{Integration} with third-party platforms and \textbf{APIs} enhances the
-system's functionality, enabling seamless interactions with other technological
-tools.
+Facilitating seamless interoperability with external platforms and augmenting
+the system's functionality through synergistic engagement with \textbf{APIs}
+represent pivotal components of the overarching operational paradigm. Such
+integrative endeavors engender an ecosystem conducive to harmonious interactions
+with an array of technological adjuncts, thereby amplifying the system's utility
+and efficacy.
 
-The system incorporates \textbf{user management} and \textbf{access control
-mechanisms} to ensure data security and accessibility only to authorized
-personnel, maintaining data integrity and confidentiality.
+Furthermore, the system incorporates robust \textbf{user management} protocols
+and \textbf{access control mechanisms} to ensure the sanctity of data assets,
+conferring access exclusively to duly authorized personnel. By meticulously
+safeguarding data integrity and confidentiality, these provisions engender an
+environment predicated upon trust and accountability, thereby fortifying the
+organizational edifice.
 
-Lastly, the system includes \textbf{reporting} and \textbf{alerting
-functionalities} that are vital for communicating essential information to
-users, stakeholders, and decision-makers in a timely and efficient manner.
+Finally, the culminating facets of \textbf{reporting} and \textbf{alerting
+    functionalities} emerge as indispensable conduits for the expeditious
+dissemination of critical insights and information to an array of stakeholders,
+encompassing end-users, organizational hierarchies, and strategic
+decision-makers. These functionalities serve as conduits for the expeditious
+transmission of salient information, thereby empowering stakeholders to navigate
+dynamic operational landscapes with acumen and alacrity.
 
 \subsection{Non-Functional Requirements}
 
-\textbf{Reliability} is a critical component, requiring the platform to ensure
-high availability and stable operation consistently. It is also crucial to
-maintain \textbf{data integrity}, \textbf{security}, and \textbf{privacy} as top
-priorities to protect user information and system data.
+In the realm of technological platforms, the facet of \textbf{Reliability}
+stands as a cornerstone, necessitating unwavering commitment towards ensuring
+persistent high availability and steadfast operational stability. Paramount to
+this pursuit is the unyielding dedication towards upholding \textbf{data
+    integrity}, \textbf{security}, and \textbf{privacy} as cardinal imperatives,
+safeguarding both user information and system data against potential
+vulnerabilities and breaches.
 
-\textbf{Scalability} needs to be addressed to handle increasing volumes of data.
-The system should have the ability to scale efficiently, leveraging
-\textbf{cloud-native technologies} and \textbf{containerization} such as Docker
-and Kubernetes, to facilitate easy scaling of infrastructure and applications.
+Moreover, the imperative of \textbf{Scalability} looms large, compelling the
+platform to confront the exigencies posed by burgeoning volumes of data. In this
+regard, an adept embrace of \textbf{cloud-native technologies} and the paradigm
+of \textbf{containerization}, exemplified by stalwarts such as Docker and
+Kubernetes, emerges as indispensable. Such technological modalities proffer the
+requisite infrastructure agility, facilitating seamless and expedient scaling of
+both infrastructure and applications alike, thereby ensuring commensurate
+responsiveness to evolving operational demands.
 
-In terms of \textbf{performance}, the platform must offer rapid data processing
-and analysis capabilities to meet the demands of real-time decision making and
-large-scale data handling.
+Further accentuating the discourse, the criterion of \textbf{Performance}
+assumes primacy, necessitating the provision of expeditious data processing and
+analysis capabilities. This imperative is underscored by the imperatives of
+real-time decision-making imperatives and the imperative of managing large-scale
+data operations with finesse and alacrity.
 
-\textbf{Usability} is essential, with a focus on providing an intuitive and
-\textbf{user-friendly interface} that is tailored for different user groups to
-ensure ease of use and accessibility.
+In tandem, the imperative of \textbf{Usability} assumes paramount significance,
+underscoring the imperative of furnishing an interface that is as intuitive as
+it is user-friendly. A bespoke interface, meticulously tailored to cater to the
+diverse exigencies of disparate user cohorts, stands as a testament to the
+platform's commitment towards ensuring unfettered ease of access and usability.
 
-\textbf{Security} measures must include robust data protection and access
-control mechanisms to safeguard against unauthorized access and potential data
-breaches.
+Moreover, the aspect of \textbf{Security} mandates robust fortifications,
+encompassing both data protection protocols and stringent access control
+mechanisms. This multifaceted approach is calibrated to thwart the machinations
+of unauthorized access and avert the specter of potential data breaches, thereby
+undergirding the sanctity of the platform's operational integrity.
 
-\textbf{Compliance} with applicable regulatory standards, data privacy laws, and
-compliance requirements is mandatory to ensure that the platform operates within
-legal constraints.
+Simultaneously, adherence to \textbf{Compliance} imperatives emerges as
+non-negotiable, enjoining scrupulous conformity with a panoply of regulatory
+stipulations, data privacy statutes, and overarching compliance requisites. Such
+fidelity towards regulatory benchmarks serves as an indispensable bulwark,
+ensuring that the platform operates within the hallowed precincts of legal and
+ethical propriety.
 
-Lastly, expanding on \textbf{scaling technology and infrastructure}, the
-platform should adopt \textbf{cloud-native architectures} and containerization
-technologies to enable easy scaling. Utilizing auto-scaling capabilities and
-elastic resources provided by cloud platforms allows for dynamic adjustment of
-capacity based on demand. Additionally, implementing a \textbf{microservices
-architecture} and decoupled components will enable independent scaling of
-individual services or modules, enhancing overall system resilience and
-flexibility.
+Lastly, expounding upon the contours of \textbf{scaling technology and
+    infrastructure}, the platform espouses an ethos predicated upon the tenets of
+\textbf{cloud-native architectures} and containerization technologies. This
+strategic pivot affords the platform the requisite nimbleness, facilitated by
+the judicious employment of auto-scaling capabilities and the elastic resources
+proffered by cloud platforms. Furthermore, the adoption of a
+\textbf{microservices architecture} and the decoupling of components augur well
+for bolstering the platform's resilience and flexibility, enabling independent
+scaling of discrete services or modules, and thus engendering a paradigm of
+operational dynamism and adaptability.
 
 \subsection{Data Requirements}
-% TODO: How data is stored, processed and 
+In the intricate domain of radar data management, the foundational phase
+commences with an exhaustive \textbf{cleaning process}. This pivotal endeavor is
+indispensable, serving as the vanguard against the encroachment of
+\textbf{noise} and extraneous data, thereby ensuring the veracity and
+reliability of the data corpus. The imperative of cleansing radar files assumes
+paramount significance, poised as it is to ready them for the rigors of more
+intricate processing and analysis, which constitute linchpins in facilitating
+accurate meteorological appraisals.
 
-% How radar file are processed, cleaned, stored and used Storing data as blob -
-% Radar Object (Minio) Caching
-The initial step in handling radar data involves a comprehensive
-\textbf{cleaning process}. This is crucial to remove any \textbf{noise} and
-extraneous data, ensuring the accuracy and reliability of the data. Cleaning
-radar files is essential as it preps them for more complex processing and
-analysis, which are critical for accurate meteorological assessments.
+Subsequent to the meticulous cleansing regimen, the radar data traverses a
+sophisticated trajectory, wherein it becomes ensconced within a nuanced
+\textbf{processing routine}. At this juncture, specialized algorithms assume the
+mantle, orchestrating a symphony of analyses to distill meaningful patterns and
+insights from the data trove. This transformative phase is pivotal, transmuting
+raw data into actionable intelligence, thereby furnishing decision-makers with a
+bedrock of dependable insights.
 
-Once the radar data has been cleaned, it undergoes a sophisticated
-\textbf{processing routine}. Specialized algorithms analyze the data to extract
-meaningful patterns and information, structuring it into a format that can be
-easily utilized in further analyses. This step is vital for transforming raw
-data into actionable insights that can be relied upon for decision-making.
+Post the crucible of processing, the data finds sanctuary within the confines of
+\textbf{blobs} nestled within an object storage apparatus, typically epitomized
+by \textbf{Minio}. This methodical selection of storage modality is predicated
+upon its inherent scalability and facile accessibility, attributes that are
+deemed indispensable in wrangling the prodigious volumes of data bequeathed by
+radar systems. Moreover, the architecture of blob storage engenders a milieu
+conducive to expeditious data retrieval and management, adeptly accommodating
+the dynamic access patterns germane to meteorological exigencies.
 
-After processing, the data is stored as \textbf{blobs} in an object storage
-system, typically \textbf{Minio}. This method of storage is selected for its
-scalability and ease of access, which are necessary attributes for managing the
-voluminous data generated by radar systems. Blob storage also facilitates the
-efficient retrieval and management of data, supporting dynamic access patterns
-required by meteorological applications.
+In a bid to further fortify the edifice of data handling efficacy, the apparatus
+embraces the instantiation of a \textbf{caching mechanism}. This strategic
+deployment bestows upon the system the capability to temporarily harbor recently
+accessed data, thereby effectuating a palpable reduction in retrieval latencies.
+This feature assumes outsized significance, particularly in scenarios of
+heightened exigency, such as severe weather events, wherein the expeditious
+access to data assumes the mantle of existential import.
 
-To further enhance data handling efficiency, a \textbf{caching mechanism} is
-implemented. This system stores recently accessed data temporarily,
-significantly reducing retrieval times and ensuring that frequently needed
-information is readily available. This feature is particularly important during
-critical situations, such as severe weather events, where timely data access is
-crucial.
-
-The processed and stored radar data is extensively used across various
-applications. Meteorologists rely on this data for accurate \textbf{weather
-forecasting} and \textbf{climate modeling}. It is also crucial for
-\textbf{emergency response teams} who depend on real-time data for effective
-decision-making during weather-related emergencies. Furthermore, the data
-supports a broad range of scientific research, aiding in the study of climate
-patterns and atmospheric conditions.
+The hallowed precincts of processed and stored radar data resonate with a
+multifaceted utility, traversing a panoply of applications. Meteorologists,
+ensconced within the annals of weather forecasting and climate modeling, find
+themselves inexorably tethered to this fount of data-driven insights.
+Concurrently, the pantheon of emergency response entities stands as ardent
+beneficiaries, drawing succor from the real-time data streams that undergird
+effective decision-making in the crucible of weather-related emergencies.
+Furthermore, the expansive vista of scientific inquiry finds solace in this rich
+tapestry of data, wielding it as a potent instrument in unraveling the enigmatic
+contours of climate patterns and atmospheric dynamics.
