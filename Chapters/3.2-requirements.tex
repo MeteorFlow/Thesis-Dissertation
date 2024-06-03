@@ -1,20 +1,87 @@
+\subsection{The Need for Business Requirements in Nowcasting}
+
+In the realm of meteorology, the importance of accurate and timely weather
+forecasts cannot be overstated, especially for short-term (3-6 hours) and
+immediate forecasts known as nowcasting (<3 hours). While automated weather
+stations are equipped with advanced technology for meteorological data
+processing—such as data collection, ETL (Extract, Transform, Load) processes,
+and analysis—the business processes surrounding these forecasts remain largely
+manual. This disparity between technological capability and operational
+efficiency hampers the overall effectiveness of weather prediction and response.
+
+\subsubsection*{Current State of Technology in Meteorological Processing}
+Automated weather stations have revolutionized the field of meteorology with
+their ability to continuously monitor and process vast amounts of weather data.
+These stations employ sophisticated sensors and data processing algorithms to
+collect, transform, and analyze meteorological data in real-time. The
+integration of these technologies enables accurate and rapid weather
+observations, which are critical for creating reliable forecasts.
+
+\subsubsection*{Challenges in Business Processes}
+Despite the technological advancements in data processing, many business
+processes in meteorological services are still conducted manually. This includes
+constructing reports for abnormal weather phenomena using tools like Microsoft
+Word and sending email alerts manually. Such manual processes introduce
+significant delays in issuing alerts and hinder the responsiveness of nowcasting
+systems. The delay in alert dissemination not only affects the ability to
+provide timely warnings but also impacts the overall efficiency of weather
+forecasting operations.
+
+\subsubsection*{The Need for Automation and Database Handling}
+To bridge the gap between technological capabilities and operational efficiency,
+there is a pressing need to automate business processes in meteorological
+services. An automated system for handling these processes would significantly
+enhance the speed and accuracy of weather alerts and nowcasting.
+
+The system should support \textbf{dynamic fields for data input}, allowing
+flexibility in capturing various types of weather data and abnormal phenomena.
+This dynamic data collection capability ensures that the system can adapt to the
+diverse and evolving nature of meteorological observations, facilitating the
+accurate recording of critical data points.
+
+Incorporating \textbf{templates for report generation} can streamline the
+creation of consistent and standardized reports, reducing the time and effort
+required for manual report construction. Template-based reporting ensures that
+essential information is presented uniformly, making it easier to interpret and
+act upon the data provided.
+
+\textbf{Automating the process of report creation and email distribution}
+ensures that alerts are sent out promptly and accurately, minimizing human error
+and delays. Automated report creation and distribution systems can trigger
+alerts based on predefined criteria, ensuring that relevant stakeholders receive
+timely notifications of abnormal weather conditions.
+
+A \textbf{robust database system} is essential to handle the storage, retrieval,
+and management of data conducted in meteorological business process. This
+database should provide a reliable platform for data-driven decision-making.
+Effective database management enables efficient data organization, ensuring that
+critical information is readily accessible for analysis and reporting.
+
+In conclusion, the integration of automated processes and advanced database
+management systems is crucial for enhancing the efficiency and effectiveness of
+nowcasting. By addressing the current limitations in business processes,
+meteorological services can significantly improve their ability to provide
+timely and accurate weather forecasts, ultimately safeguarding lives and
+property.
+
+
 \subsection{Functional Requirement}
 
 In the initial phase of the data processing workflow, \textbf{data ingestion}
 emerges as a pivotal undertaking, wherein data is systematically amassed from a
 spectrum of heterogeneous sources, spanning from \textbf{Application Programming
-    Interfaces (APIs)} to repositories housing \textbf{government data}. This
+Interfaces (APIs)} to repositories housing \textbf{government data}. This
 foundational process assumes paramount significance as it sets the groundwork
 for the acquisition of an extensive array of datasets essential for
 comprehensive analytical endeavors.
 
 Following data ingestion, the subsequent stage revolves around \textbf{data
-    storage} and \textbf{management}. This facet encompasses the orchestration of
-repositories, potentially ranging from conventional databases to more
-contemporary constructs like \textbf{data lakes}. Such infrastructural
-modalities afford robust frameworks that adeptly cater to the exigencies imposed
-by the management of copious volumes of data, thereby ensuring efficiency and
-efficacy in handling data resources.
+    storage} and \textbf{management}. This facet encompasses the orchestration
+    of repositories, potentially ranging from conventional databases to more
+    contemporary constructs like \textbf{data lakes}. Such infrastructural
+    modalities afford robust frameworks that adeptly cater to the exigencies
+    imposed by the management of copious volumes of data, thereby ensuring
+    efficiency and efficacy in handling data resources.
 
 Concomitant with data management, \textbf{data analysis} and
 \textbf{visualization} procedures are meticulously tailored to cater to the
@@ -40,11 +107,12 @@ organizational edifice.
 
 Finally, the culminating facets of \textbf{reporting} and \textbf{alerting
     functionalities} emerge as indispensable conduits for the expeditious
-dissemination of critical insights and information to an array of stakeholders,
-encompassing end-users, organizational hierarchies, and strategic
-decision-makers. These functionalities serve as conduits for the expeditious
-transmission of salient information, thereby empowering stakeholders to navigate
-dynamic operational landscapes with acumen and alacrity.
+    dissemination of critical insights and information to an array of
+    stakeholders, encompassing end-users, organizational hierarchies, and
+    strategic decision-makers. These functionalities serve as conduits for the
+    expeditious transmission of salient information, thereby empowering
+    stakeholders to navigate dynamic operational landscapes with acumen and
+    alacrity.
 
 \subsection{Non-Functional Requirements}
 
@@ -52,7 +120,7 @@ In the realm of technological platforms, the facet of \textbf{Reliability}
 stands as a cornerstone, necessitating unwavering commitment towards ensuring
 persistent high availability and steadfast operational stability. Paramount to
 this pursuit is the unyielding dedication towards upholding \textbf{data
-    integrity}, \textbf{security}, and \textbf{privacy} as cardinal imperatives,
+integrity}, \textbf{security}, and \textbf{privacy} as cardinal imperatives,
 safeguarding both user information and system data against potential
 vulnerabilities and breaches.
 
@@ -91,15 +159,15 @@ ensuring that the platform operates within the hallowed precincts of legal and
 ethical propriety.
 
 Lastly, expounding upon the contours of \textbf{scaling technology and
-    infrastructure}, the platform espouses an ethos predicated upon the tenets of
-\textbf{cloud-native architectures} and containerization technologies. This
-strategic pivot affords the platform the requisite nimbleness, facilitated by
-the judicious employment of auto-scaling capabilities and the elastic resources
-proffered by cloud platforms. Furthermore, the adoption of a
-\textbf{microservices architecture} and the decoupling of components augur well
-for bolstering the platform's resilience and flexibility, enabling independent
-scaling of discrete services or modules, and thus engendering a paradigm of
-operational dynamism and adaptability.
+    infrastructure}, the platform espouses an ethos predicated upon the tenets
+    of \textbf{cloud-native architectures} and containerization technologies.
+    This strategic pivot affords the platform the requisite nimbleness,
+    facilitated by the judicious employment of auto-scaling capabilities and the
+    elastic resources proffered by cloud platforms. Furthermore, the adoption of
+    a \textbf{microservices architecture} and the decoupling of components augur
+    well for bolstering the platform's resilience and flexibility, enabling
+    independent scaling of discrete services or modules, and thus engendering a
+    paradigm of operational dynamism and adaptability.
 
 \subsection{Data Requirements}
 In the intricate domain of radar data management, the foundational phase

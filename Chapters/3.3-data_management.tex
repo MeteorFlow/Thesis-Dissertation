@@ -1,69 +1,6 @@
 % TODO: How data are stored? Storage - structured, unstructured, semi-structured
 % Naming convention Data format
 
-\subsection{Data modeling}
-In developing a comprehensive software system, it's crucial to approach data
-modeling with a structured and strategic framework that encompasses various
-aspects of the application's functionality and security. To provide a clear and
-logical understanding of this framework, we will explore three critical models
-that collectively define the architecture of modern software systems:
-core model, identity model, and form model. Each model serves a distinct purpose and
-complements the others, ensuring a robust, secure, and user-friendly
-application. Let's delve into these models in the order that mirrors their
-integration and importance in the development process.
-
-We begin with the core model, the backbone of our application. This model is
-where the fundamental business logic and core data structures are established.
-It defines the essential entities and their relationships that form the basis of
-the system, focusing on how data is organized and manipulated to support the
-application’s primary services and functionalities. By starting with core model,
-we set the groundwork for all other aspects of the system, highlighting the
-primary operations and data flows that are crucial for the application's
-purpose.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{Images/model_core.png}
-  \vspace{1em}
-  \caption{The Core Model}
-\end{figure}
-
-Once the core functionalities are established, we shift our focus to security
-with the identity model. This model is dedicated to managing user authentication and
-authorization. It ensures that access to the information and functionalities
-defined in core model is securely controlled. By integrating Identity model, we
-discuss how the system protects sensitive data and operations from unauthorized
-access, ensuring that users can interact with the core components in a secure
-environment. This model not only reinforces the security of the system but also
-defines user roles and permissions, which are essential for a multi-user
-application. 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{Images/model_auth.png}
-  \vspace{1em}
-  \caption{The Identity Model}
-\end{figure}
-
-Finally, we explore the form model, which ties the user interface and
-interaction directly to the underlying data structures of the core model and the
-security protocols of the Identity model. This model addresses how users will
-experience and interact with the application through various forms and
-interfaces. It encompasses everything from data entry and management to ensuring
-that user interactions are intuitive and efficient. form model is critical for
-defining the presentation and accessibility of the system’s features, making
-sure that the application is not only functional and secure but also
-user-friendly and responsive to the needs of its users.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{Images/model_form.png}
-  \vspace{1em}
-  \caption{The Form Model}
-\end{figure}
-
-By examining these models in this order, we effectively build from the internal
-architecture to the external user interface, providing a comprehensive view of
-the system's design from the ground up. This approach helps in understanding how
-each component is interlinked and why each is vital to the overall success and
-operability of the application.
 \subsection{Blob storage}
 As an intermediary entity situated between the data producers, exemplified by
 the radar center, and the data consumers, represented by the Data Model and
@@ -143,3 +80,124 @@ any superfluous delimiters, serves to obviate compatibility issues with extant
 filesystems. Notably, the conspicuous absence of special characters such as
 hyphens and colons serves to circumvent prohibitions imposed by certain
 filesystems, such as Windows, on the usage of such characters within filenames.
+
+\subsection{Data modeling for business processes}
+To provide a clear and logical understanding of this process, we will explore
+three critical models that collectively define the architecture of modern
+software systems: core model, identity model, and form model. Each model serves
+a distinct purpose and complements the others, ensuring a robust, secure, and
+user-friendly application. Let's delve into these models in the order that
+mirrors their integration and importance in the development process.
+
+We begin with the core model, the backbone of our application. This model is
+where the fundamental business logic and core data structures are established.
+It defines the essential entities and their relationships that form the basis of
+the system, focusing on how data is organized and manipulated to support the
+application’s primary services and functionalities. By starting with core model,
+we set the groundwork for all other aspects of the system, highlighting the
+primary operations and data flows that are crucial for the application's
+purpose.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_core.png}
+  \vspace{1em}
+  \caption{The Core Model}
+\end{figure}
+
+Once the core functionalities are established, we shift our focus to security
+with the identity model. This model is dedicated to managing user authentication
+and authorization. It ensures that access to the information and functionalities
+defined in core model is securely controlled. By integrating Identity model, we
+discuss how the system protects sensitive data and operations from unauthorized
+access, ensuring that users can interact with the core components in a secure
+environment. This model not only reinforces the security of the system but also
+defines user roles and permissions, which are essential for a multi-user
+application. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_auth.png}
+  \vspace{1em}
+  \caption{The Identity Model}
+\end{figure}
+
+Finally, we explore the form model, which ties the user interface and
+interaction directly to the underlying data structures of the core model and the
+security protocols of the Identity model. This model addresses how users will
+experience and interact with the application through various forms and
+interfaces. It encompasses everything from data entry and management to ensuring
+that user interactions are intuitive and efficient. form model is critical for
+defining the presentation and accessibility of the system’s features, making
+sure that the application is not only functional and secure but also
+user-friendly and responsive to the needs of its users.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/model_form.png}
+  \vspace{1em}
+  \caption{The Form Model}
+\end{figure}
+
+By examining these models in this order, we effectively build from the internal
+architecture to the external user interface, providing a comprehensive view of
+the system's design from the ground up. This approach helps in understanding how
+each component is interlinked and why each is vital to the overall success and
+operability of the application.
+
+\subsection{Data Layer of User Demands}
+
+The data layer of user demand in MeteorFlow encompasses various components and
+processes designed to handle different types of data submissions and
+interactions. This layer is divided into two main categories: Lay Users and
+Power Users, each with distinct data sources and processing mechanisms.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Images/userDemand.png}
+  \vspace{1em}
+  \caption{The Form Model}
+\end{figure}
+
+\subsubsection*{Lay Users}
+
+Lay users interact with the system primarily through forms, messages, and
+documents. These interactions are facilitated and supported by a combination of
+frontend and backend technologies.
+
+Forms submission for lay users is managed through a dynamic and interactive user
+interface built with Nuxt.js. The submitted forms are then processed on the
+backend using .NET Core and PostgreSQL, ensuring efficient data collection and
+storage. This robust setup supports the overall work process by enabling
+seamless data management.
+
+For message handling, the frontend integrates with various messaging platforms
+to facilitate user notifications and communication. These messages are managed
+on the backend using .NET Core, ensuring effective communication within the work
+process. Document management is another critical aspect, with Nuxt.js providing
+interfaces for handling documents, while .NET Core and PostgreSQL manage storage
+and retrieval. This setup ensures that necessary documents are easily
+accessible, supporting the overall work process.
+
+\subsubsection*{Power Users}
+
+Power users require more advanced data handling capabilities, particularly for
+tasks involving data ingestion, storage, and processing. This is managed through
+the ETL (Extract, Transform, Load) process.
+
+Source data handling for power users involves fetching data from various sources
+via APIs. The data is then stored in MinIO and S3, accommodating large datasets
+and blob storage needs. Apache Airflow orchestrates the ETL process, ensuring
+data is correctly extracted, transformed, and loaded into the system.
+Specialized data types, such as radar objects and various other blobs, are also
+managed and stored efficiently.
+
+Advanced processing and dataloading tasks are handled using PyTorch, which
+provides powerful capabilities for data analysis and machine learning. This
+setup is complemented by the S3 REST API, facilitating seamless interaction with
+S3 storage for efficient data retrieval and management.
+
+\subsubsection*{Achievement}
+
+The data layer of user demand in MeteorFlow is designed to be comprehensive and
+versatile, accommodating the needs of different user types through a combination
+of modern technologies and streamlined processes. This structure ensures that
+data is handled securely, efficiently, and effectively, supporting the overall
+goals of the MeteorFlow system.
