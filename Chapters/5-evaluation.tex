@@ -1,6 +1,6 @@
-\subsection{Functionality}
+\section{Functionality}
 
-\subsubsection{Object Storage and data preprocessing}
+\subsection{Object Storage and data preprocessing}
 The current status of our project involves the establishment of a rudimentary
 data lake infrastructure, meticulously crafted using robust and efficient
 Raspberry Pi servers. This infrastructure serves as the bedrock upon which we
@@ -36,7 +36,7 @@ infrastructure. This strategic move not only enhances the accessibility of our
 system but also fosters a conducive environment for innovation and collaboration
 within the research community.
 
-\subsubsection{Form Builder and advanced features}
+\subsection{Form Builder and advanced features}
 The integration of the Form Builder as an add-on feature represents a strategic
 enhancement tailored to cater to the specific needs of our discerning customer
 base. Stemming from insights garnered during a comprehensive field trip to the
@@ -77,7 +77,7 @@ development endeavors, thereby solidifying our position as a trusted provider of
 innovative solutions tailored to the unique challenges of weather hazard
 response.
 
-\subsection{Performance Evaluation}
+\section{Performance Evaluation}
 Following the meticulous execution of rigorous load tests conducted on our
 self-hosted servers, we are pleased to present an insightful overview of the
 results obtained. Despite the deployment of our system on Raspberry Pi servers,
@@ -102,7 +102,7 @@ examination, we gleaned a comprehensive understanding of the underlying factors
 influencing the efficiency of our infrastructure, thereby empowering us to
 optimize and fine-tune our system for enhanced performance and scalability.
 
-\subsubsection{Writing large volume of data}
+\subsection{Writing large volume of data}
 
 To rigorously evaluate the ingestion capabilities of our system, our team
 embarked on a meticulous testing regimen, leveraging the S3 interface for
@@ -158,7 +158,7 @@ groundwork for a future characterized by unparalleled innovation and excellence
 in data management and processing.
 
 
-\subsubsection{Processing data}
+\subsection{Processing data}
 
 In pursuit of enhancing the informativeness and query efficiency of our data, as
 well as mitigating loading bandwidth concerns, our team has judiciously opted to
@@ -211,7 +211,7 @@ efficiency and accuracy, thereby catalyzing transformative advancements across
 diverse domains.
 
 
-\subsubsection{Concurrently reading data}
+\subsection{Concurrently reading data}
 Using the PyTorch API that we have implemented, we perform reading data in
 multiple processes. This innovative approach not only facilitates seamless
 access to our data storage but also serves as a poignant simulation of
@@ -257,27 +257,47 @@ safeguard the computational resources allocated for write operations, thereby
 enhancing system stability and ensuring uninterrupted data ingestion processes.
 
 
-\subsection{Further improvement}
+\section{Further improvement}
+In the comprehensive review of our solution, it becomes apparent that while our
+system exhibits robust functionality and efficiency, there remain several areas
+where additional features or enhancements could be incorporated to further
+elevate its efficacy and usability. These missing features represent
+opportunities for refinement and optimization, underscoring the iterative nature
+of software development and the perpetual quest for excellence.
 
-When reviewing our solution, here are some of the missing features that we have
-left out or could not handle.
+\subsection{Supports more query types on PyTorch's API}
 
-\subsubsubsection{Supports more query types on PyTorch's API}
-Currently, for using \texttt{MeteorFlowDataset} on PyTorch, we only support
-querying data that belongs to a range (or an interval) of date time. Such as
-querying all data in the year of 2019, or data on the 10th and 11th of June.
+Presently, within the framework of PyTorch's \texttt{MeteorFlowDataset}, data
+retrieval capabilities are confined to querying data within a specified range or
+interval of date-time parameters. For instance, users can query data pertaining
+to a specific year, such as 2019, or data corresponding to particular dates,
+such as the 10th and 11th of June. While this functionality suffices for basic
+data retrieval tasks, the burgeoning needs of model teams necessitate the
+expansion of query capabilities to encompass more sophisticated and nuanced
+requirements.
 
-As the growing needs of the model team in the veracity of data grow, we must
-make sure to handle some of the more advanced query models. Some of them could
-be: querying data in a combined area of two or more radars, this will help
-integrate data and return more useful information.
+To address the evolving demands for enhanced data veracity, it is imperative to
+augment the existing query models with advanced functionalities that facilitate
+comprehensive data exploration and analysis. Among the proposed enhancements is
+the integration of support for querying data from combined areas encompassing
+two or more radar stations. This strategic augmentation not only facilitates the
+seamless integration of disparate data sources but also enhances the granularity
+and utility of the information returned.
+
+The implementation of advanced query models, such as querying data from combined
+radar areas, represents a pivotal step towards enriching the capabilities of the
+\texttt{MeteorFlowDataset} and empowering model teams with unprecedented
+insights into meteorological phenomena. By enabling users to aggregate and
+analyze data from multiple radar stations simultaneously, we anticipate a
+quantum leap in the comprehensiveness and accuracy of the information gleaned
+from the dataset.
 
 
 
-\subsubsection{Increase cluster performance}
+\subsection{Increase cluster performance}
 The current deployment architecture of our system can be characterized as
 adequate, albeit with room for improvement. At present, the system is hosted on
-two Raspberry Pi 3B+ units, which effectively handle the incoming user requests.
+two Raspberry Pi 3B+ units, which effectively handle incoming user requests.
 However, despite their reliability in meeting current demands, our team has
 encountered challenges related to the intricacies of configuring and optimizing
 these ARM-based servers. The process of setting up the project entails
@@ -290,7 +310,7 @@ services thus far, there is a palpable sense within our team of the limitations
 posed by their performance capabilities. As we strive for continuous improvement
 and scalability, it is imperative to explore alternatives that offer greater
 computational power and flexibility. Consequently, we envision conducting
-extensive research into the feasibility of transitioning to more robust server
+extensive research into the feasibility of transitioning to a more robust server
 solutions, such as Intel NUCs or basic PCs. By leveraging these
 higher-performance hardware platforms, we anticipate a significant enhancement
 in our system's capabilities, enabling us to seamlessly accommodate the
