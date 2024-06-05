@@ -36,6 +36,40 @@ infrastructure. This strategic move not only enhances the accessibility of our
 system but also fosters a conducive environment for innovation and collaboration
 within the research community.
 
+\subsection{Partial integration with data model team}
+
+Upon deployment, the system will serve as a conduit for the data model team,
+facilitating streamlined access to requisite data and expediting the
+commencement of their model training endeavors. The seamless integration of the
+system mitigates the exigency of laborious manual file management tasks,
+alleviating researchers' cognitive load and empowering them to direct their
+attention towards crucial aspects such as delineating pertinent regions,
+identifying essential features, and scrutinizing related fields pivotal for the
+fulfillment of their duties. This strategic reallocation of focus engenders a
+more efficacious research workflow, wherein scholars can devote their cognitive
+resources towards analytical tasks rather than being ensnared by administrative
+overheads.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/5-data-model-loader.png}
+    \vspace{1cm}
+    \caption{Part of code used by the data model team using our system}
+    \label{fig:data-model}
+\end{figure}
+
+Furthermore, the system's capacity to automate the retrieval and processing of
+data engenders a paradigm shift in research methodologies, fostering a more
+data-centric approach characterized by enhanced efficiency and efficacy. By
+obviating the need for researchers to expend time and effort on mundane data
+handling tasks, the system engenders a conducive environment for scholarly
+inquiry wherein investigators can delve deeper into data analysis, hypothesis
+testing, and model refinement. Consequently, this augments the pace of
+scientific inquiry, catalyzing the exploration of complex phenomena and
+expediting the generation of novel insights that underpin advancements across
+diverse domains.
+
+
 \subsection{Form Builder and advanced features}
 The integration of the Form Builder as an add-on feature represents a strategic
 enhancement tailored to cater to the specific needs of our discerning customer
@@ -77,6 +111,7 @@ development endeavors, thereby solidifying our position as a trusted provider of
 innovative solutions tailored to the unique challenges of weather hazard
 response.
 
+
 \section{Performance Evaluation}
 Following the meticulous execution of rigorous load tests conducted on our
 self-hosted servers, we are pleased to present an insightful overview of the
@@ -102,6 +137,28 @@ examination, we gleaned a comprehensive understanding of the underlying factors
 influencing the efficiency of our infrastructure, thereby empowering us to
 optimize and fine-tune our system for enhanced performance and scalability.
 
+\subsection{Machine specification}
+
+Below delineate several intricacies concerning the cluster implemented for
+experimental evaluation. These facets collectively denote the comprehensive
+configuration and functionalities of the cluster, delineating its capacity,
+performance benchmarks, and compatibility with diverse computational tasks.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \rowcolor[HTML]{C0C0C0}
+        Specification & Details                                                                                                   & Note                \\ \hline
+        Server        & Raspberry Pi 3B+                                                                                          & deploying 2 servers \\ \hline
+        CPU           & \begin{tabular}[c]{@{}l@{}}Broadcom BCM2837B0, \\ quad-core A53 (ARMv8)\\ 64-bit SoC @1.4GHz\end{tabular} & each                \\ \hline
+        RAM           & 1GB LPDDR2 SDRAM                                                                                          & each                \\ \hline
+        Disk          & 16GB + 32GB                                                                                               &                     \\ \hline
+        Ethernet      & 80 Mbps                                                                                                   & total               \\ \hline
+    \end{tabular}
+\end{table}
+
+
 \subsection{Writing large volume of data}
 
 To rigorously evaluate the ingestion capabilities of our system, our team
@@ -123,7 +180,7 @@ MB. This variability underscores the dynamic nature of our system's ingest
 capabilities, with performance metrics fluctuating in response to diverse
 environmental factors and operational parameters.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/5-upload-18-files.png}
     \vspace{1cm}
@@ -181,7 +238,7 @@ journey underscored the resilience and adaptability of our team, exemplifying
 our unwavering commitment to harnessing cutting-edge technologies for the
 betterment of our data management ecosystem.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/5-etl-data.png}
     \vspace{1cm}
@@ -199,6 +256,14 @@ can efficiently process a batch of five files, each approximately 30 MB in size,
 in less than two minutes. This remarkable feat not only underscores the efficacy
 of our optimization strategies but also augurs well for the scalability and
 resilience of our data processing pipeline.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/5-perf-chart.png}
+    \vspace{1cm}
+    \caption{Data upload time and preprocessing time per data size}
+    \label{fig:perf-chart}
+\end{figure}
 
 Furthermore, it is essential to highlight the transformative impact of our
 preprocessing efforts on the overall efficacy of our data management ecosystem.
@@ -228,7 +293,7 @@ both the underlying MinIO storage system and our meticulously designed
 infrastructure architecture, affirming the soundness of our technological
 choices and engineering decisions.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/5-read-5-process-at-once.png}
     \vspace{1cm}
